@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>catalog</name>
-	<description>Catalogue de produits de l&apos;enseigne Mercadona</description>
+	<description>Catalogue de produits des magasins Mercadona</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>
@@ -22,7 +22,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
