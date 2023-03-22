@@ -7,6 +7,6 @@ public class Product {
     private String imageDirectory;
 
     private ProductCategory productCategory;
-    private ProductPromotion productPromotion;
+    private Promotion promotion;
 
 }
