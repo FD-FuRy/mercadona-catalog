@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// Gestion des Web Services des Produits : Méthodes Get , Post, Put, Delete
+// Gestion des Web Services des Produits : CRUD de Méthodes Get , Post, Put, Delete
 @RestController
 @RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATALOGUE )
 public class ProductWS {
