@@ -3,6 +3,7 @@ package com.mercadona.catalog.pojo;
 public class Product {
     private Long productId;
     private String productName;
+    private String productDescription;
     private double productPrice;
     private String imageDirectory;
 
@@ -12,9 +13,10 @@ public class Product {
     // constructeurs de la classe Produits:
     public Product() {
     }
-    public Product(Long productId, String productName, double productPrice, String imageDirectory, ProductCategory productCategory) {
+    public Product(Long productId, String productName, String productDescription, double productPrice, String imageDirectory, ProductCategory productCategory) {
         this.productId = productId;
         this.productName = productName;
+        this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.imageDirectory = imageDirectory;
         this.productCategory = productCategory;
@@ -34,6 +36,14 @@ public class Product {
     }
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    //Getters/Setters du texte de description du Produit:
+    public String getProductDescription() {
+        return productDescription;
+    }
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     //Getters/Setters du prix du Produit:
