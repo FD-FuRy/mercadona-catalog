@@ -8,6 +8,7 @@ public class Promotion {
     private Date promotionEndDate;
     private int discountPercentage;
 
+    //Constructeurs de la classe Promotion:
     public Promotion() {
     }
     public Promotion(Long promotionId, Date promotionStartDate, Date promotionEndDate, int discountPercentage) {
@@ -17,6 +18,7 @@ public class Promotion {
         this.discountPercentage = discountPercentage;
     }
 
+    //Getters/Setters du nombre identifiant de la Promotion:
     public Long getPromotionId() {
         return promotionId;
     }
@@ -24,6 +26,7 @@ public class Promotion {
         this.promotionId = promotionId;
     }
 
+    //Getters/Setters de la date de début de Promotion:
     public Date getPromotionStartDate() {
         return promotionStartDate;
     }
@@ -31,6 +34,7 @@ public class Promotion {
         this.promotionStartDate = promotionStartDate;
     }
 
+    //Getters/Setters de la date de fin de Promotion:
     public Date getPromotionEndDate() {
         return promotionEndDate;
     }
@@ -38,10 +42,12 @@ public class Promotion {
         this.promotionEndDate = promotionEndDate;
     }
 
+    //Getters/Setters du pourcentage (de remise à appliquer) de la Promotion:
     public int getDiscountPercentage() {
         return discountPercentage;
     }
     public void setDiscountPercentage(int discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
+
 }

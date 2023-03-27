@@ -9,6 +9,7 @@ public class Product {
     private ProductCategory productCategory;
     private Promotion promotion;
 
+    // constructeurs de la classe Produits:
     public Product() {
     }
     public Product(Long productId, String productName, double productPrice, String imageDirectory, ProductCategory productCategory) {
@@ -19,6 +20,7 @@ public class Product {
         this.productCategory = productCategory;
     }
 
+    //Getters/Setters du nombre identifiant du Produit:
     public Long getProductId() {
         return productId;
     }
@@ -26,6 +28,7 @@ public class Product {
         this.productId = productId;
     }
 
+    //Getters/Setters du nom (Libellé) du Produit:
     public String getProductName() {
         return productName;
     }
@@ -33,6 +36,7 @@ public class Product {
         this.productName = productName;
     }
 
+    //Getters/Setters du prix du Produit:
     public double getProductPrice() {
         return productPrice;
     }
@@ -40,6 +44,7 @@ public class Product {
         this.productPrice = productPrice;
     }
 
+    //Getters/Setters de la direction (chemin absolu du relatif) de l'image du Produit:
     public String getImageDirectory() {
         return imageDirectory;
     }
@@ -47,6 +52,7 @@ public class Product {
         this.imageDirectory = imageDirectory;
     }
 
+    //Getters/Setters de la Categorie du Produit:
     public ProductCategory getProductCategory() {
         return productCategory;
     }
@@ -54,6 +60,7 @@ public class Product {
         this.productCategory = productCategory;
     }
 
+    //Getters/Setters de la Promotion du Produit (s'il y a une promotion à appliquer):
     public Promotion getPromotion() {
         return promotion;
     }
