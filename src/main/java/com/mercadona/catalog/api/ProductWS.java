@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// Gestion des Web Services des Produits : CRUD de Méthodes Get , Post, Put, Delete
+// Contrôleur des produits: Gestion des Web Services des Produits : CRUD de Méthodes Get , Post, Put, Delete
 @RestController
 @RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATALOGUE )
 public class ProductWS {
 
-    @Autowired    //appel des méthodes ProductService avec autoconfiguration Spring
+    @Autowired    //Instanciation d'un Bean par Spring: appel des méthodes ProductService avec autoconfiguration
     private ProductService productService;
 
     // Map de la méthode Get des produits
