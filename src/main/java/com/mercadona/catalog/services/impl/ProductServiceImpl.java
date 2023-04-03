@@ -11,34 +11,34 @@ import java.util.stream.Collectors;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private static final List<Product> maListe = new ArrayList<>();
+    private static final List<Product> myProductsList = new ArrayList<>();
 
     @Override
     public List<Product> getAllProducts() {
-        return maListe;
+        return myProductsList;
     }
 
     @Override
     public List<Product> getProductsById(Long productId) {
-        return maListe.stream()
+        return myProductsList.stream()
                 .filter(product -> product.getProductId().equals(productId))
                 .collect(Collectors.toList());
     }
 
     @Override
     public void updateProduct(Long productId, Product product) {
-        maListe.removeIf(myProduct -> myProduct.getProductId().equals(productId));
-        maListe.add(product);
+        myProductsList.removeIf(myProduct -> myProduct.getProductId().equals(productId));
+        myProductsList.add(product);
     }
 
     @Override
     public void createProduct(Product product) {
-        maListe.add(product);
+        myProductsList.add(product);
     }
 
     @Override
     public void deleteProduct(Long productId) {
-        maListe.removeIf(myProduct -> myProduct.getProductId().equals(productId));
+        myProductsList.removeIf(myProduct -> myProduct.getProductId().equals(productId));
     }
 
 }
