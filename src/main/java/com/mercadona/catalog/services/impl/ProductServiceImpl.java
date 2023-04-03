@@ -1,7 +1,6 @@
 package com.mercadona.catalog.services.impl;
 
 import com.mercadona.catalog.pojo.Product;
-import com.mercadona.catalog.pojo.ProductCategory;
 import com.mercadona.catalog.services.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +19,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProductsByCategory(ProductCategory productCategory) {
+    public List<Product> getProductsById(Long productId) {
         return maListe.stream()
-                .filter(product -> product.getProductCategory().equals(productCategory))
+                .filter(product -> product.getProductId().equals(productId))
                 .collect(Collectors.toList());
     }
 

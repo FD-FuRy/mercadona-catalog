@@ -9,7 +9,7 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    List<Product> getAllProductsByCategory(ProductCategory productCategory);
+    List<Product> getProductsById(Long productId);
 
     void updateProduct(Long productId, Product product);
 
