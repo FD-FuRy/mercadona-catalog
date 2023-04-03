@@ -1,7 +1,6 @@
 package com.mercadona.catalog.api;
 
 import com.mercadona.catalog.pojo.Product;
-import com.mercadona.catalog.pojo.ProductCategory;
 import com.mercadona.catalog.services.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
