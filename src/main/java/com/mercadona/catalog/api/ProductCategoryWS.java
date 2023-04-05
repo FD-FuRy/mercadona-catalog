@@ -10,7 +10,7 @@ import java.util.List;
 
 // Contrôleur des catégories: Gestion des Web Services des Catégories : CRUD de Méthodes Get , Post, Put, Delete
 @RestController
-@RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATALOGUE )
+@RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATEGORY )
 public class ProductCategoryWS {
 
     @Autowired      //Instanciation d'un Bean par Spring: appel des méthodes ProductCategoryService avec autoconfiguration

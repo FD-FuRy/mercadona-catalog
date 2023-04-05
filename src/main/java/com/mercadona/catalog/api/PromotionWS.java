@@ -10,7 +10,7 @@ import java.util.List;
 
 // Contrôleur des promotions: Gestion des Web Services des Promotions : CRUD de Méthodes Get , Post, Put, Delete
 @RestController
-@RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATALOGUE )
+@RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_PROMOTION )
 public class PromotionWS {
 
     @Autowired      //Instanciation d'un Bean par Spring: appel des méthodes PromotionService avec autoconfiguration

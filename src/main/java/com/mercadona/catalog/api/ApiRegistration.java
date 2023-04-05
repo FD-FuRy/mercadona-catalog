@@ -9,4 +9,8 @@ public interface ApiRegistration {
 
     String REST_CATALOGUE = "catalog/";
 
+    String REST_CATEGORY = "category/";
+
+    String REST_PROMOTION = "promotion/";
+
 }
