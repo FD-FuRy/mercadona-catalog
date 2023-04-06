@@ -1,17 +1,40 @@
 package com.mercadona.catalog.pojo;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="Products")
 public class Product {
+    //Id clé primaire de la base "Produits" (auto-générée par séquence):
+    @Id
+    @SequenceGenerator(name="product_sequence",
+    sequenceName = "product_sequence",
+    allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+    generator = "product_sequence")
+    @Column(name = "productId", updatable = false)
     private Long productId;
+
+    @Column(name = "productName")
     private String productName;
+    @Column(name = "productDescription")
     private String productDescription;
+    @Column(name = "productPrice")
     private double productPrice;
+    @Column(name = "imageDirectory")
     private String imageDirectory;
 
+    @ManyToOne
+    @JoinColumn(name = "categoryId" /* , nullable = false */ )
     private ProductCategory productCategory;
+    @OneToOne
+    @JoinColumn(name = "promotionId",
+            referencedColumnName = "promotionId")
     private Promotion promotion;
 
     // constructeurs de la classe Produits:
     public Product() {
+        //Constructeur vide requis par Hibernate
     }
     public Product(String productName, String productDescription, double productPrice, String imageDirectory, ProductCategory productCategory) {
         this.productName = productName;

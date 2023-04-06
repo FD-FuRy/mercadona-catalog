@@ -1,17 +1,35 @@
 package com.mercadona.catalog.pojo;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "Promotions")
 public class Promotion {
+    //Id clé primaire de la base "Promotions" (auto-générée par séquence):
+    @Id
+    @SequenceGenerator(name="promotion_sequence",
+            sequenceName = "promotion_sequence",
+            allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "promotion_sequence")
+    @Column(name = "promotionId", updatable = false)
     private Long promotionId;
+
+    @Column(name = "promotionStartDate")
     private Date promotionStartDate;
+    @Column(name = "promotionEndDate")
     private Date promotionEndDate;
+    @Column(name = "discountPercentage")
     private int discountPercentage;
 
+    @OneToOne(mappedBy = "promotion")
     private Product product;
 
     //Constructeurs de la classe Promotion:
     public Promotion() {
+        //Constructeur vide requis par Hibernate
     }
     public Promotion(Date promotionStartDate, Date promotionEndDate, int discountPercentage) {
         this.promotionStartDate = promotionStartDate;
