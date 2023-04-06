@@ -8,14 +8,22 @@ public class Promotion {
     private Date promotionEndDate;
     private int discountPercentage;
 
+    private Product product;
+
     //Constructeurs de la classe Promotion:
     public Promotion() {
     }
-    public Promotion(Long promotionId, Date promotionStartDate, Date promotionEndDate, int discountPercentage) {
+    public Promotion(Date promotionStartDate, Date promotionEndDate, int discountPercentage) {
+        this.promotionStartDate = promotionStartDate;
+        this.promotionEndDate = promotionEndDate;
+        this.discountPercentage = discountPercentage;
+    }
+    public Promotion(Long promotionId, Date promotionStartDate, Date promotionEndDate, int discountPercentage, Product product) {
         this.promotionId = promotionId;
         this.promotionStartDate = promotionStartDate;
         this.promotionEndDate = promotionEndDate;
         this.discountPercentage = discountPercentage;
+        this.product = product;
     }
 
     //Getters/Setters du nombre identifiant de la Promotion:
@@ -48,6 +56,14 @@ public class Promotion {
     }
     public void setDiscountPercentage(int discountPercentage) {
         this.discountPercentage = discountPercentage;
+    }
+
+    //Getters/Setters du produit associé à la promotion:
+    public Product getProduct() {
+        return product;
+    }
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
 }

@@ -13,6 +13,12 @@ public class Product {
     // constructeurs de la classe Produits:
     public Product() {
     }
+    public Product(String productName, String productDescription, double productPrice, String imageDirectory, ProductCategory productCategory) {
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+        this.imageDirectory = imageDirectory;
+    }
     public Product(Long productId, String productName, String productDescription, double productPrice, String imageDirectory, ProductCategory productCategory) {
         this.productId = productId;
         this.productName = productName;
