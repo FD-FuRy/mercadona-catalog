@@ -1,4 +1,13 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://db_adress/db_name
+    username: nom_utilisateur
+    password: mdp_utilisateur
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
