@@ -8,7 +8,7 @@ public interface ProductCategoryService {
 
     List<ProductCategory> getAllProductsCategory();
 
-    List<ProductCategory> getProductsCategoryById(Long categoryId);
+    ProductCategory getProductsCategoryById(Long categoryId);
 
     void updateProductsCategory(Long categoryId, ProductCategory productCategory);
 

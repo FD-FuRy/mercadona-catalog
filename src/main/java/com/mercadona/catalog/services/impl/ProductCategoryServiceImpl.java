@@ -1,44 +1,45 @@
 package com.mercadona.catalog.services.impl;
 
 import com.mercadona.catalog.pojo.ProductCategory;
+import com.mercadona.catalog.repository.ProductCategoryRepository;
 import com.mercadona.catalog.services.ProductCategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class ProductCategoryServiceImpl implements ProductCategoryService {
 
-    private static final List<ProductCategory> myProductsCategoryList = new ArrayList<>();
+    @Autowired
+    private ProductCategoryRepository productCategoryRepository;
 
     @Override
     public List<ProductCategory> getAllProductsCategory() {
-        return myProductsCategoryList;
+        return productCategoryRepository.findAll();
     }
 
     @Override
-    public List<ProductCategory> getProductsCategoryById(Long categoryId) {
-        return myProductsCategoryList.stream()
-                .filter(productCategory -> productCategory.getCategoryId().equals(categoryId))
-                .collect(Collectors.toList());
+    public ProductCategory getProductsCategoryById(Long categoryId) {
+        Optional<ProductCategory> productCategoryOptional = productCategoryRepository.findById(categoryId);
+        return productCategoryOptional.orElse(null);
     }
 
     @Override
     public void updateProductsCategory(Long categoryId, ProductCategory productCategory) {
-        myProductsCategoryList.removeIf(myProductCategory -> myProductCategory.getCategoryId().equals(categoryId));
-        myProductsCategoryList.add(productCategory);
+        this.deleteProductsCategory(categoryId);
+        productCategoryRepository.save(productCategory);
     }
 
     @Override
     public void createProductsCategory(ProductCategory productCategory) {
-        myProductsCategoryList.add(productCategory);
+        productCategoryRepository.save(productCategory);
     }
 
     @Override
     public void deleteProductsCategory(Long categoryId) {
-        myProductsCategoryList.removeIf(myProductCategory -> myProductCategory.getCategoryId().equals(categoryId));
+        productCategoryRepository.deleteById(categoryId);
     }
 
 }

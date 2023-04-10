@@ -24,9 +24,9 @@ public class ProductCategoryWS {
     }
 
     // Map de la méthode Get By (Id) des catégories
-    @Operation(operationId = "getProductsCategoryById", summary = "getProductsCategoryById  ( Afficher catégories suivant leur Id )")
+    @Operation(operationId = "getProductsCategoryById", summary = "getProductsCategoryById  ( Afficher une catégorie suivant son Id )")
     @GetMapping("{categoryId}")
-    public List<ProductCategory> getProductsCategoryById(@PathVariable(name = "categoryId") Long categoryId) {
+    public ProductCategory getProductsCategoryById(@PathVariable(name = "categoryId") Long categoryId) {
         return productCategoryService.getProductsCategoryById(categoryId);
     }
 
