@@ -24,10 +24,10 @@ public class ProductWS {
     }
 
     // Map de la méthode Get By (Id) des produits
-    @Operation(operationId = "getProductsById", summary = "getProductsById  ( Afficher produits suivant leur Id )")
+    @Operation(operationId = "getProductById", summary = "getProductById  ( Afficher un produit suivant son Id )")
     @GetMapping("{productId}")
-    public List<Product> getProductsById(@PathVariable(name = "productId") Long productId) {
-        return productService.getProductsById(productId);
+    public Product getProductById(@PathVariable(name = "productId") Long productId) {
+        return productService.getProductById(productId);
     }
 
     // Map de la méthode Post des produits

@@ -1,44 +1,45 @@
 package com.mercadona.catalog.services.impl;
 
 import com.mercadona.catalog.pojo.Product;
+import com.mercadona.catalog.repository.ProductRepository;
 import com.mercadona.catalog.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private static final List<Product> myProductsList = new ArrayList<>();
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public List<Product> getAllProducts() {
-        return myProductsList;
+        return productRepository.findAll();
     }
 
     @Override
-    public List<Product> getProductsById(Long productId) {
-        return myProductsList.stream()
-                .filter(product -> product.getProductId().equals(productId))
-                .collect(Collectors.toList());
+    public Product getProductById(Long productId) {
+        Optional<Product> productOptional = productRepository.findById(productId);
+        return productOptional.orElse(null);
     }
 
     @Override
     public void updateProduct(Long productId, Product product) {
-        myProductsList.removeIf(myProduct -> myProduct.getProductId().equals(productId));
-        myProductsList.add(product);
+        this.deleteProduct(productId);
+        productRepository.save(product);
     }
 
     @Override
     public void createProduct(Product product) {
-        myProductsList.add(product);
+        productRepository.save(product);
     }
 
     @Override
     public void deleteProduct(Long productId) {
-        myProductsList.removeIf(myProduct -> myProduct.getProductId().equals(productId));
+        productRepository.deleteById(productId);
     }
 
 }
