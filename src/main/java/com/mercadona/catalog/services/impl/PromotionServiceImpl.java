@@ -1,44 +1,45 @@
 package com.mercadona.catalog.services.impl;
 
 import com.mercadona.catalog.pojo.Promotion;
+import com.mercadona.catalog.repository.PromotionRepository;
 import com.mercadona.catalog.services.PromotionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class PromotionServiceImpl implements PromotionService {
 
-    private static final List<Promotion> myPromotionsList = new ArrayList<>();
-
+    @Autowired
+    private PromotionRepository promotionRepository;
 
     @Override
     public List<Promotion> getAllPromotions() {
-        return myPromotionsList;
+        return promotionRepository.findAll();
     }
 
     @Override
-    public List<Promotion> getPromotionById(Long promotionId) {
-        return myPromotionsList.stream()
-                .filter(promotion -> promotion.getPromotionId().equals(promotionId))
-                .collect(Collectors.toList());
+    public Promotion getPromotionById(Long promotionId) {
+        Optional<Promotion> promotionOptional = promotionRepository.findById(promotionId);
+        return promotionOptional.orElse(null);
     }
 
     @Override
     public void updatePromotion(Long promotionId, Promotion promotion) {
-        myPromotionsList.removeIf(myPromotions -> myPromotions.getPromotionId().equals(promotionId));
-        myPromotionsList.add(promotion);
+        this.deletePromotion(promotionId);
+        promotionRepository.save(promotion);
     }
 
     @Override
     public void createPromotion(Promotion promotion) {
-        myPromotionsList.add(promotion);
+        promotionRepository.save(promotion);
     }
 
     @Override
     public void deletePromotion(Long promotionId) {
-        myPromotionsList.removeIf(myPromotions -> myPromotions.getPromotionId().equals(promotionId));
+        promotionRepository.deleteById(promotionId);
     }
+
 }

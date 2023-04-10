@@ -26,7 +26,7 @@ public class PromotionWS {
     // Map de la méthode Get By (Id) des promotions
     @Operation(operationId = "getPromotionById", summary = "getPromotionById  ( Afficher les promotions suivant leur Id )")
     @GetMapping("{promotionId}")
-    public List<Promotion> getPromotionById(@PathVariable(name = "promotionId") Long promotionId) {
+    public Promotion getPromotionById(@PathVariable(name = "promotionId") Long promotionId) {
         return promotionService.getPromotionById(promotionId);
     }
 

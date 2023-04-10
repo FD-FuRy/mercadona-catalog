@@ -8,7 +8,7 @@ public interface PromotionService {
 
     List<Promotion> getAllPromotions();
 
-    List<Promotion> getPromotionById(Long promotionId);
+    Promotion getPromotionById(Long promotionId);
 
     void updatePromotion(Long promotionId, Promotion promotion);
 
