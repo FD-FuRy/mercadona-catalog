@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://db_adress/db_name
-    username: nom_utilisateur
-    password: mdp_utilisateur
+    url: jdbc:postgresql://postgresql-fd-fury.alwaysdata.net/fd-fury_mercadona
+    username: fd-fury_studi-examinateur
+    password: Studi-2023_éval3-SEGUIN_FD
   jpa:
     hibernate:
       ddl-auto: create
