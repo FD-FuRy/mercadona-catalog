@@ -7,7 +7,9 @@ public interface ApiRegistration {
 
     String REST_PREFIX = "/api/";
 
-    String REST_CATALOGUE = "catalog/";
+    String REST_CATALOG = "catalog/";
+
+    String REST_PRODUCT = "product/";
 
     String REST_CATEGORY = "category/";
 
