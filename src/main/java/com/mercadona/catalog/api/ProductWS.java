@@ -10,7 +10,7 @@ import java.util.List;
 
 // Contrôleur des produits: Gestion des Web Services des Produits : CRUD de Méthodes Get , Post, Put, Delete
 @RestController
-@RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_CATALOGUE )
+@RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_PRODUCT )
 public class ProductWS {
 
     @Autowired    //Instanciation d'un Bean par Spring: appel des méthodes ProductService avec autoconfiguration
