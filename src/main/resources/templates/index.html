@@ -7,7 +7,28 @@
 </head>
 <body>
     <h1>TEST VISUEL  (THYMELEAF)  DE LA PAGE D'ACCUEIL DE L'APPLICATION MERCADONA :</h1>
-    
+    <br>
+
+    <h2>Affichage des catégories présentes dans la BDD (getAllProductsCategory Method):</h2>
+    <ul>
+        <li data-th-each="category : ${allCategoriesList}">
+            <div class="cardLine">ID catégorie:  <div class="objectData" data-th-text="${category.categoryId}">ID vide</div> </div>
+            <div class="cardLine">Nom de la catégorie:  <div class="objectData" data-th-text="${category.categoryName}">Nom vide</div> </div>
+            <div class="cardLine">Produits de la catégorie:
+                <div class="cardLine" data-th-each="selectedCategoryProduct : ${category.productList}">
+                    <div class="objectData" data-th-text="${selectedCategoryProduct.productName}">Pas de produit</div> ,
+                </div>
+            </div>
+            <br>
+        </li>
+    </ul>
+    <h3>test de balise select avec les données de catégories</h3>
+    <label for="categorySelector">Trier les produits par:</label>
+    <select name="selected-Category" id="categorySelector">
+        <option value="0">Tous les produits</option>
+        <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}"> <div data-th-text="${category.categoryName}"> </div></option>
+    </select>
+
 
     <a data-th-href="@{/admin/}">Panneau administrateur</a>
 

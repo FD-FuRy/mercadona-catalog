@@ -1,3 +1,20 @@
-p {
+body {
+    display: inline;
+}
+
+
+h1 {
     color: blue;
+}
+
+h2 {
+    color: #6a6ae2;
+}
+
+.cardLine {
+    display: flex;
+}
+
+.objectData {
+    font-weight: bold;
 }
