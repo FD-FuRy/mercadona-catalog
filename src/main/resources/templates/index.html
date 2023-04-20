@@ -22,12 +22,39 @@
             <br>
         </li>
     </ul>
+
     <h3>test de balise select avec les données de catégories</h3>
     <label for="categorySelector">Trier les produits par:</label>
     <select name="selected-Category" id="categorySelector">
         <option value="0">Tous les produits</option>
         <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}"> <div data-th-text="${category.categoryName}"> </div></option>
     </select>
+
+    <h2>Liste des produits de la BDD (getAllProducts Method):</h2>
+    <ul>
+        <li data-th-each="product : ${allProductsList}">
+            <div class="cardLine">ID produit:  <div class="objectData" data-th-text="${product.productId}">ID vide</div> </div>
+            <div class="cardLine">Nom du produit:  <div class="objectData" data-th-text="${product.productName}">Nom vide</div> </div>
+            <div class="cardLine">Description:  <div class="objectData" data-th-text="${product.productDescription}">Pas de description</div> </div>
+            <div class="cardLine">Prix:  <div class="objectData" data-th-text="${product.productPrice}">Pas de prix</div> € </div>
+            <div class="cardLine">Lien de l'image:  <div class="objectData" data-th-text="${product.imageDirectory}">Pas d'image</div> </div>
+            <div class="cardLine">Catégorie:  <div class="objectData" data-th-text="${product.productCategory.categoryName}">Pas de Catégorie de produit</div> </div>
+            <div class="cardLine">Promotion:
+                <div class="cardLine" data-th-if="${product.promotion}"> <div class="objectData" data-th-text="${product.promotion.discountPercentage}"> </div> % de remise</div>
+                <div data-th-unless="${product.promotion}"> Pas de Promotion active !</div>
+            </div>
+            <div class="cardLine">
+                <div class="cardLine" data-th-if="${product.promotion}">
+                    prix avec la remise: <div data-th-text="${product.productPrice - (product.productPrice * product.promotion.discountPercentage / 100)}"></div> €
+                </div>
+                <div data-th-unless="${product.promotion}">
+                    (le prix reste le même)
+                </div>
+            </div>
+            <br>
+        </li>
+    </ul>
+
 
 
     <a data-th-href="@{/admin/}">Panneau administrateur</a>
