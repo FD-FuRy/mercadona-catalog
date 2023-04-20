@@ -2,7 +2,6 @@ package com.mercadona.catalog.api;
 
 import com.mercadona.catalog.services.ProductCategoryService;
 import com.mercadona.catalog.services.ProductService;
-import com.mercadona.catalog.services.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
