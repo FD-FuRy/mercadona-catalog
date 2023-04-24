@@ -4,12 +4,13 @@ import com.mercadona.catalog.pojo.Product;
 import com.mercadona.catalog.services.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 // Contrôleur des produits: Gestion des Web Services des Produits : CRUD de Méthodes Get , Post, Put, Delete
-@RestController
+@Controller
 @RequestMapping( ApiRegistration.REST_PREFIX + ApiRegistration.REST_PRODUCT )
 public class ProductWS {
 
@@ -32,9 +33,10 @@ public class ProductWS {
 
     // Map de la méthode Post des produits
     @Operation(operationId = "createProduct", summary = "createProduct  ( Créer un nouveau produit )")
-    @PostMapping
-    public void createProduct(@RequestBody Product product) {
+    @PostMapping("/post")
+    public String createProduct(Product product) {
         productService.createProduct(product);
+        return "redirect:/admin/product/create";  //redirection vers le modelandview de création de produit après la méthode Post du formulaire
     }
 
     // Map de la méthode Put des produits
