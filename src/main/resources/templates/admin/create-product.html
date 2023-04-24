@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Nouveau produit</title>
+    <link data-th-href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h2>CREATION D'UN NOUVEAU PRODUIT :</h2>
+
+        <form action="#" data-th-action="@{/api/product/post}"
+              data-th-object="${product1}"
+              method="POST">
+
+            <label for="productName">Nom:</label>
+            <input type="text" id="productName" data-th-field="*{productName}" placeholder="nom du produit">
+
+            <label for="productDescription">Description:</label>
+            <input type="text" id="productDescription" data-th-field="*{productDescription}" placeholder="texte de description">
+
+            <label for="productPrice">Prix:</label>
+            <input type="text" id="productPrice" data-th-field="*{productPrice}" placeholder="prix (exemple: 2.55)">
+
+            <label for="imageDirectory">Lien de l'image:</label>
+            <input type="text" id="imageDirectory" data-th-field="*{imageDirectory}" placeholder="chemin de l'image">
+
+            <label for="productCategory">Choisir une catégorie:</label>
+            <select name="productCategory" id="productCategory" data-th-field="*{productCategory}">
+                <option data-th-each="category : ${allCategoriesList}"
+                        data-th-value="${category.categoryId}"
+                        data-th-text="${category.categoryName}">
+                </option>
+            </select>
+
+            <input type="submit" value="Créer le produit">
+        </form>
+    </div>
+
+<a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
+</body>
+</html>
