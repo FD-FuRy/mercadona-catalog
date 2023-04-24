@@ -41,6 +41,7 @@ public class Product {
         this.productDescription = productDescription;
         this.productPrice = productPrice;
         this.imageDirectory = imageDirectory;
+        this.productCategory = productCategory;
     }
     public Product(Long productId, String productName, String productDescription, double productPrice, String imageDirectory, ProductCategory productCategory) {
         this.productId = productId;
