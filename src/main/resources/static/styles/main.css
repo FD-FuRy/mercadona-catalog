@@ -18,3 +18,20 @@ h2 {
 .objectData {
     font-weight: bold;
 }
+
+ul {
+    display: flex;
+}
+
+li {
+    width: 300px;
+    border-style: solid;
+    border-color: #6a6ae2;
+    margin: 2px;
+    padding: 2px;
+    list-style-type: none;
+}
+
+.productZone {
+    display: flex;
+}
