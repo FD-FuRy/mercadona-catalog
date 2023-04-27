@@ -6,11 +6,13 @@
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
+    <h1> GESTION DES PRODUITS</h1>
+
     <div>
         <h2>CREATION D'UN NOUVEAU PRODUIT :</h2>
 
         <form action="#" data-th-action="@{/api/product/post}"
-              data-th-object="${product1}"
+              data-th-object="${createdProduct}"
               method="POST">
 
             <label for="productName">Nom:</label>
@@ -37,6 +39,6 @@
         </form>
     </div>
 
-<a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
+    <a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Gestion catégories</title>
+    <link data-th-href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+    <h1> GESTION DES CATEGORIES D'ARTICLES</h1>
+
+    <div>
+        <h2>AJOUTER UNE CATÉGORIE :</h2>
+
+        <form action="#" data-th-action="@{/api/category/post}"
+              data-th-object="${createdCategory}"
+              method="POST">
+
+            <label for="categoryName">Nom de la catégorie:</label>
+            <input type="text" id="categoryName" data-th-field="*{categoryName}" placeholder="catégorie à ajouter">
+
+            <input type="submit" value="Créer la catégorie">
+        </form>
+    </div>
+
+    <h2>LISTE DES CATÉGORIES EXISTANTES:</h2>
+    <div>
+        <ul>
+            <li data-th-each="category : ${allCategoriesList}">
+                <div class="cardLine">ID catégorie:  <div class="objectData" data-th-text="${category.categoryId}">ID vide</div> </div>
+                <div class="cardLine">Nom de la catégorie:  <div class="objectData" data-th-text="${category.categoryName}">Nom vide</div> </div> <br>
+                <div class="cardLine">Produits de la catégorie:
+                    <div class="cardLine" data-th-each="selectedCategoryProduct : ${category.productList}">
+                        <div class="objectData" data-th-text="${selectedCategoryProduct.productName}">Pas de produit</div> ,
+                    </div>
+                </div> <br>
+
+                <a data-th-href="@{/api/category/delete/{categoryId}(categoryId=${category.categoryId})}">Supprimer cette catégorie</a>
+                <br>
+            </li>
+        </ul>
+    </div>
+
+    <a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
+</body>
+</html>
