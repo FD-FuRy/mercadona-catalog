@@ -1,6 +1,7 @@
 package com.mercadona.catalog.api;
 
 import com.mercadona.catalog.pojo.Product;
+import com.mercadona.catalog.pojo.ProductCategory;
 import com.mercadona.catalog.services.ProductCategoryService;
 import com.mercadona.catalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/admin/")
-public class ModelAdminControler {
+public class ModelAdminController {
 
     @Autowired
     private ProductService productService;
@@ -23,6 +24,7 @@ public class ModelAdminControler {
     public ModelAndView getAdminPage() {
         ModelAndView getAdminLandingPage = new ModelAndView();
         getAdminLandingPage.setViewName("pages/admin.html");
+        getAdminLandingPage.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         return getAdminLandingPage;
     }
 
@@ -32,9 +34,20 @@ public class ModelAdminControler {
         ModelAndView getNewProductData = new ModelAndView();
         getNewProductData.setViewName("/admin/create-product.html");
         Product product = new Product();
-        getNewProductData.addObject("product1", product);
+        getNewProductData.addObject("createdProduct", product);
         getNewProductData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         return getNewProductData;
+    }
+
+    //MAP du ModelAndView de la page Admin de gestion des catégories:
+    @GetMapping ("/category/createdelete")
+    public ModelAndView manageCategory() {
+        ModelAndView getCategoryManagementData = new ModelAndView();
+        getCategoryManagementData.setViewName("/admin/createdelete-category.html");
+        ProductCategory productCategory = new ProductCategory();
+        getCategoryManagementData.addObject("createdCategory", productCategory);
+        getCategoryManagementData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
+        return getCategoryManagementData;
     }
 
 }
