@@ -29,7 +29,6 @@ public class ProductCategory {
     }
     public ProductCategory(String categoryName, List<Product> productList) {
         this.categoryName = categoryName;
-        this.productList = productList;
     }
     public ProductCategory(Long categoryId, String categoryName, List<Product> productList) {
         this.categoryId = categoryId;
