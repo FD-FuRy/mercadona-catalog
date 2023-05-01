@@ -18,10 +18,17 @@
 
     <a data-th-href="@{/admin/product/create}">Créer un Nouveau Produit</a> <br> <br>
 
-    <div data-th-insert="~{/../admin/components/admin-getall-product.html}"></div>
+    <h2>Liste des produits du Catalogue :</h2>
+    <div>Trier les produits par:</div>
+    <select name="selected-Category" id="adminCategorySelector">
+        <option value="0">Tous les produits</option>
+        <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}"> <div data-th-text="${category.categoryName}"> </div></option>
+    </select>
+
+    <div id="getProductsAdminComponent"> </div>
 
 
 
-<script type="text/javascript" data-th-src="@{/scripts/main.js}"></script>
+<script type="text/javascript" data-th-src="@{/scripts/admin.js}"></script>
 </body>
 </html>
