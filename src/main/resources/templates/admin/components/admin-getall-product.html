@@ -1,25 +1,32 @@
-<div class="productZone">
-    <ul>
-        <li data-th-each="product : ${allProductsList}">
-            <div class="cardLine">ID produit:  <div class="objectData" data-th-text="${product.productId}">ID vide</div> </div>
-            <div class="cardLine">Nom du produit:  <div class="objectData" data-th-text="${product.productName}">Nom vide</div> </div>
-            <div class="cardLine">Description:  <div class="objectData" data-th-text="${product.productDescription}">Pas de description</div> </div>
-            <div class="cardLine">Prix:  <div class="objectData" data-th-text="${product.productPrice}">Pas de prix</div> € </div>
-            <div class="cardLine">Lien de l'image:  <div class="objectData" data-th-text="${product.imageDirectory}">Pas d'image</div> </div>
-            <div class="cardLine">Catégorie:  <div class="objectData" data-th-text="${product.productCategory.categoryName}">Pas de Catégorie de produit</div> </div>
-            <div class="cardLine">Promotion:
-                <div class="cardLine" data-th-if="${product.promotion}"> <div class="objectData" data-th-text="${product.promotion.discountPercentage}"> </div> % de remise</div>
-                <div data-th-unless="${product.promotion}"> Pas de Promotion active !</div>
-            </div>
-            <div class="cardLine">
-                <div class="cardLine" data-th-if="${product.promotion}">
-                    prix avec la remise: <div data-th-text="${product.productPrice - (product.productPrice * product.promotion.discountPercentage / 100)}"></div> €
+<div>
+    <ul class="productZone">
+        <div class="productCardZone">
+            <li class="productCard" data-th-each="product : ${allProductsList}">
+                <div class="cardTitle" data-th-text="${product.productName}">Nom Produit</div>
+                <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
+                <img class="productImage" data-th-src="@{https://zupimages.net/up/23/17/wma7.jpg}">
+                <div class="cardText" data-th-text="${product.productDescription}">Description</div>
+                <div class="cardLine">
+                    <div class="cardPrice promotionalPrice" data-th-if="${product.promotion}">
+                        <div data-th-text="${product.productPrice - (product.productPrice * product.promotion.discountPercentage / 100)}">Prix remisé</div> <div> €   </div> <div class="stripedPrice" data-th-text="${product.productPrice}">Prix normal</div>
+                    </div>
+                    <div class="cardPrice normalPrice" data-th-unless="${product.promotion}">
+                        <div data-th-text="${product.productPrice}">Prix normal</div> €
+                    </div>
+                    <div class="cardPromotion" data-th-if="${product.promotion}">
+                        <div>( Promotion: </div> <div data-th-text="${product.promotion.discountPercentage}">Pourcentage</div> <div>% de remise )</div>  <br>
+                    </div>
+                    <div data-th-unless="${product.promotion}"></div>
+                    <div class="cardPromotionDate" data-th-if="${product.promotion}">
+                        <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${product.promotion.promotionStartDate}"> </div> <br>
+                        <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${product.promotion.promotionEndDate}"> </div>
+                    </div>
+                    <div data-th-unless="${product.promotion}"></div>
                 </div>
-                <div data-th-unless="${product.promotion}">
-                    (le prix reste le même)
-                </div>
-            </div>
-            <br>
-        </li>
+
+                <a data-th-href="@{/api/product/delete/{productId}(productId=${product.productId})}">Supprimer ce Produit</a>
+
+            </li>
+        </div>
     </ul>
 </div>
