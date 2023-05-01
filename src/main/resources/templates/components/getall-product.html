@@ -1,0 +1,29 @@
+<div>
+    <ul class="productZone">
+        <div class="productCardZone">
+            <li class="productCard" data-th-each="product : ${allProductsList}">
+                <div class="cardTitle" data-th-text="${product.productName}">Nom Produit</div>
+                <img class="productImage" data-th-src="@{https://zupimages.net/up/23/17/wma7.jpg}">
+                <div class="cardText" data-th-text="${product.productDescription}">Description</div>
+                <div class="cardLine">
+                    <div class="cardPrice promotionalPrice" data-th-if="${product.promotion}">
+                        <div data-th-text="${product.productPrice - (product.productPrice * product.promotion.discountPercentage / 100)}">Prix remisé</div> <div> €   </div> <div class="stripedPrice" data-th-text="${product.productPrice}">Prix normal</div>
+                    </div>
+                    <div class="cardPrice normalPrice" data-th-unless="${product.promotion}">
+                            <div data-th-text="${product.productPrice}">Prix normal</div> €
+                    </div>
+                    <div class="cardPromotion" data-th-if="${product.promotion}">
+                        <div>( Promotion: </div> <div data-th-text="${product.promotion.discountPercentage}">Pourcentage</div> <div>% de remise )</div>  <br>
+                    </div>
+                    <div data-th-unless="${product.promotion}"></div>
+                    <div class="cardPromotionDate" data-th-if="${product.promotion}">
+                        <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${product.promotion.promotionStartDate}"> </div> <br>
+                        <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${product.promotion.promotionEndDate}"> </div>
+                    </div>
+                    <div data-th-unless="${product.promotion}"></div>
+                </div> <br>
+                <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
+            </li>
+        </div>
+    </ul>
+</div>
