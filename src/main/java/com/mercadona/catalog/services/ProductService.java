@@ -1,12 +1,15 @@
 package com.mercadona.catalog.services;
 
 import com.mercadona.catalog.pojo.Product;
+import com.mercadona.catalog.pojo.ProductCategory;
 
 import java.util.List;
 
 public interface ProductService {
 
     List<Product> getAllProducts();
+
+    List<Product> getAllProductsByCategory(ProductCategory productCategory);
 
     Product getProductById(Long productId);
 

@@ -1,6 +1,7 @@
 package com.mercadona.catalog.services.impl;
 
 import com.mercadona.catalog.pojo.Product;
+import com.mercadona.catalog.pojo.ProductCategory;
 import com.mercadona.catalog.repository.ProductRepository;
 import com.mercadona.catalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public List<Product> getAllProductsByCategory(ProductCategory productCategory) {
+        return productRepository.findAllByProductCategory(productCategory);
     }
 
     @Override
