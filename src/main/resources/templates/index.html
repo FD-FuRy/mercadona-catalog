@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercadona catalogue</title>
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
@@ -14,48 +15,42 @@
         <li data-th-each="category : ${allCategoriesList}">
             <div class="cardLine">ID catégorie:  <div class="objectData" data-th-text="${category.categoryId}">ID vide</div> </div>
             <div class="cardLine">Nom de la catégorie:  <div class="objectData" data-th-text="${category.categoryName}">Nom vide</div> </div>
-            <div class="cardLine">Produits de la catégorie:
-                <div class="cardLine" data-th-each="selectedCategoryProduct : ${category.productList}">
-                    <div class="objectData" data-th-text="${selectedCategoryProduct.productName}">Pas de produit</div> ,
-                </div>
-            </div>
             <br>
         </li>
     </ul>
 
-    <h3>test de balise select avec les données de catégories</h3>
-    <label for="categorySelector">Trier les produits par:</label>
-    <select name="selected-Category" id="categorySelector">
-        <option value="0">Tous les produits</option>
-        <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}"> <div data-th-text="${category.categoryName}"> </div></option>
-    </select>
+    <h2>Liste des produits du Catalogue :</h2>
 
-    <h2>Liste des produits de la BDD (getAllProducts Method):</h2>
+    <div>Trier les produits par:</div>
+    <ul id="menuCategorySelector">
+        <li> <a data-th-href="@{/}"> Tous les produits </a></li>
+        <li data-th-each="category : ${allCategoriesList}">
+            <a data-th-href="@{/admin/}" data-th-text="${category.categoryName}"></a>
+        </li>
+    </ul>
+
+
+    <div data-th-insert="~{/components/getall-product.html}"></div>
+
+
+    <!-- <div data-th-if=""></div>">On affiche tous les produits</div>
+    <div data-th-unless="">On affiche seulement les produits de la catégorie : <div id="selectedCategory"> </div></div> -->
+
+
+    <!-- <h2>Liste des Promotions existantes dans la BDD (getAllPromotions Method):</h2>
     <ul>
-        <li data-th-each="product : ${allProductsList}">
-            <div class="cardLine">ID produit:  <div class="objectData" data-th-text="${product.productId}">ID vide</div> </div>
-            <div class="cardLine">Nom du produit:  <div class="objectData" data-th-text="${product.productName}">Nom vide</div> </div>
-            <div class="cardLine">Description:  <div class="objectData" data-th-text="${product.productDescription}">Pas de description</div> </div>
-            <div class="cardLine">Prix:  <div class="objectData" data-th-text="${product.productPrice}">Pas de prix</div> € </div>
-            <div class="cardLine">Lien de l'image:  <div class="objectData" data-th-text="${product.imageDirectory}">Pas d'image</div> </div>
-            <div class="cardLine">Catégorie:  <div class="objectData" data-th-text="${product.productCategory.categoryName}">Pas de Catégorie de produit</div> </div>
-            <div class="cardLine">Promotion:
-                <div class="cardLine" data-th-if="${product.promotion}"> <div class="objectData" data-th-text="${product.promotion.discountPercentage}"> </div> % de remise</div>
-                <div data-th-unless="${product.promotion}"> Pas de Promotion active !</div>
-            </div>
-            <div class="cardLine">
-                <div class="cardLine" data-th-if="${product.promotion}">
-                    prix avec la remise: <div data-th-text="${product.productPrice - (product.productPrice * product.promotion.discountPercentage / 100)}"></div> €
-                </div>
-                <div data-th-unless="${product.promotion}">
-                    (le prix reste le même)
-                </div>
+        <li data-th-each="promotion : ${allPromotionsList}">
+            <div class="cardLine">ID promotion:  <div class="objectData" data-th-text="${promotion.promotionId}">ID vide</div> </div>
+            <div class="cardLine">Date de début de promo:  <div class="objectData" data-th-text="${promotion.promotionStartDate}">pas de date de début</div> </div>
+            <div class="cardLine">Date de fin de promo:  <div class="objectData" data-th-text="${promotion.promotionEndDate}">pas de date de fin</div> </div>
+            <div class="cardLine">Pourcentage de remise:  <div class="objectData" data-th-text="${promotion.discountPercentage}">pas de remise</div> % </div>
+            <div class="cardLine">Produit concerné par la promo:
+                <div class="objectData" data-th-text="${promotion.product.productName}"></div> (Dont l'ID est :
+                <div class="objectData" data-th-text="${promotion.product.productId}"></div> )
             </div>
             <br>
         </li>
-    </ul>
-
-
+    </ul> -->
 
     <a data-th-href="@{/admin/}">Panneau administrateur</a>
 
