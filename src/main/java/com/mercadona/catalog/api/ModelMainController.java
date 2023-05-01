@@ -19,11 +19,10 @@ public class ModelMainController {
     @Autowired
     private ProductCategoryService productCategoryService;
 
-    // MAP du ModelAndView de la page index.html (avec GetAll pour les Objets Produits et Catégories):
+    // MAP du ModelAndView de la page index.html (avec GetAll de Catégories pour le sélecteur de catégories):
     @GetMapping
     public ModelAndView getCategoriesData() {
         ModelAndView getCategoriesList = new ModelAndView("index.html");
-        getCategoriesList.addObject("allProductsList", productService.getAllProducts());
         getCategoriesList.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         return getCategoriesList;
     }

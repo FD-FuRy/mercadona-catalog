@@ -31,13 +31,13 @@ public class ProductWS {
 
     // Map de la méthode Get By (Id) des produits
     @Operation(operationId = "getProductById", summary = "getProductById  ( Afficher un produit suivant son Id )")
-    @GetMapping("{productId}")
+    @GetMapping("/get/{productId}")
     public Product getProductById(@PathVariable(name = "productId") Long productId) {
         return productService.getProductById(productId);
     }
 
     //MAP de la méthode Get By (catégorie) des produits
-    @GetMapping("{categoryId}")
+    @GetMapping("/get/{categoryId}")
     public List<Product> getAllProductsByCategory(@PathVariable(name = "categoryId") Long categoryId) {
         ProductCategory selectedCategory = productCategoryService.getProductsCategoryById(categoryId);
         return productService.getAllProductsByCategory(selectedCategory);
@@ -53,7 +53,7 @@ public class ProductWS {
 
     // Map de la méthode Put des produits
     @Operation(operationId = "updateProduct", summary = "updateProduct  ( Modifier un produit existant )")
-    @PutMapping("{productId}")
+    @PutMapping("/put/{productId}")
     public void updateProduct(@PathVariable(name= "productId") Long productId,
                               @RequestBody Product product) {
         productService.updateProduct(productId, product);
@@ -61,9 +61,10 @@ public class ProductWS {
 
     // Map de la méthode Delete des produits
     @Operation(operationId = "deleteProduct", summary = "deleteProduct  ( Supprimer un produit )")
-    @DeleteMapping ("{productId}")
-    public void deleteProduct(@PathVariable(name= "productId") Long productId) {
+    @RequestMapping (value ="/delete/{productId}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String deleteProduct(@PathVariable(name= "productId") Long productId) {
         productService.deleteProduct(productId);
+        return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
     }
 
 }
