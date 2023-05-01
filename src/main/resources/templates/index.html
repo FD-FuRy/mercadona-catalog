@@ -20,17 +20,15 @@
     </ul>
 
     <h2>Liste des produits du Catalogue :</h2>
-
     <div>Trier les produits par:</div>
-    <ul id="menuCategorySelector">
-        <li> <a data-th-href="@{/}"> Tous les produits </a></li>
-        <li data-th-each="category : ${allCategoriesList}">
-            <a data-th-href="@{/admin/}" data-th-text="${category.categoryName}"></a>
-        </li>
-    </ul>
+    <select name="selected-Category" id="categorySelector">
+        <option value="0">Tous les produits</option>
+        <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}"> <div data-th-text="${category.categoryName}"> </div></option>
+    </select>
 
+    <div id="getProductsComponent"> </div>
 
-    <div data-th-insert="~{/components/getall-product.html}"></div>
+    <!-- <div data-th-insert="~{/components/getall-product.html}"></div>  -->
 
 
     <!-- <div data-th-if=""></div>">On affiche tous les produits</div>
