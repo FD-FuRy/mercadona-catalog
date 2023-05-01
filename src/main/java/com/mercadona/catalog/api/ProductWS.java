@@ -1,6 +1,8 @@
 package com.mercadona.catalog.api;
 
 import com.mercadona.catalog.pojo.Product;
+import com.mercadona.catalog.pojo.ProductCategory;
+import com.mercadona.catalog.services.ProductCategoryService;
 import com.mercadona.catalog.services.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class ProductWS {
     @Autowired    //Instanciation d'un Bean par Spring: appel des méthodes ProductService avec autoconfiguration
     private ProductService productService;
 
+    @Autowired    //Instanciation d'un Bean par Spring: appel des méthodes ProductCategoryService avec autoconfiguration
+    private ProductCategoryService productCategoryService;
+
     // Map de la méthode Get des produits
     @Operation(operationId = "getAllProducts", summary = "getAllProducts  ( Afficher tous les produits )")
     @GetMapping
@@ -29,6 +34,13 @@ public class ProductWS {
     @GetMapping("{productId}")
     public Product getProductById(@PathVariable(name = "productId") Long productId) {
         return productService.getProductById(productId);
+    }
+
+    //MAP de la méthode Get By (catégorie) des produits
+    @GetMapping("{categoryId}")
+    public List<Product> getAllProductsByCategory(@PathVariable(name = "categoryId") Long categoryId) {
+        ProductCategory selectedCategory = productCategoryService.getProductsCategoryById(categoryId);
+        return productService.getAllProductsByCategory(selectedCategory);
     }
 
     // Map de la méthode Post des produits
