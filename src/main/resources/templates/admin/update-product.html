@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Modification Produit</title>
+    <link data-th-href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+    <h1> MODIFICATION DU PRODUIT SÉLECTIONNÉ</h1>
+
+    <form action="#" data-th-action="@{/api/product/put/{productId}(productId=${toUpdateProduct.productId})}"
+          data-th-object="${toUpdateProduct}"
+          method="POST">
+
+        <input type="hidden" data-th-field="*{productId}">
+
+        <label for="productName">Nom:</label>
+        <input type="text" id="productName" data-th-field="*{productName}" data-th-value="${toUpdateProduct.productName}">
+
+        <label for="productDescription">Description:</label>
+        <input type="text" id="productDescription" data-th-field="*{productDescription}" data-th-value="${toUpdateProduct.productDescription}">
+
+        <label for="productPrice">Prix:</label>
+        <input type="text" id="productPrice" data-th-field="*{productPrice}" data-th-value="${toUpdateProduct.productPrice}">
+
+        <label for="imageDirectory">Lien de l'image:</label>
+        <input type="text" id="imageDirectory" data-th-field="*{imageDirectory}" data-th-value="${toUpdateProduct.imageDirectory}">
+
+        <label for="productCategory">Choisir une catégorie:</label>
+        <select name="productCategory" id="productCategory" data-th-field="*{productCategory}">
+            <option data-th-each="category : ${allCategoriesList}"
+                    data-th-value="${category.categoryId}"
+                    data-th-text="${category.categoryName}">
+            </option>
+        </select>
+
+        <input type="submit" value="Modifier le produit">
+    </form>
+
+    <a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
+</body>
+</html>
