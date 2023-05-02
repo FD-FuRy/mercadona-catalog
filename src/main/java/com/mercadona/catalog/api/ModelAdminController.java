@@ -60,7 +60,16 @@ public class ModelAdminController {
         getNewProductData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         return getNewProductData;
     }
-    
+    //MAP du ModelAndView de la page Admin de modification d'un produit:
+    @GetMapping  ("/product/put/{productId}")
+    public ModelAndView updateProduct(@PathVariable(name= "productId") Long productId) {
+        ModelAndView getProductManagementData = new ModelAndView();
+        Product selectedProduct = productService.getProductById(productId);
+        getProductManagementData.setViewName("admin/update-product.html");
+        getProductManagementData.addObject("toUpdateProduct", selectedProduct);
+        getProductManagementData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
+        return getProductManagementData;
+    }
 
     //MAP du ModelAndView de la page Admin de gestion des catégories:
     @GetMapping ("/category/createdelete")

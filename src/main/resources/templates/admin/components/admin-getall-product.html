@@ -3,6 +3,7 @@
         <div class="productCardZone">
             <li class="productCard" data-th-each="product : ${allProductsList}">
                 <div class="cardTitle" data-th-text="${product.productName}">Nom Produit</div>
+                <div class="cardline" data-th-text="${product.productId}">ID Produit</div>
                 <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
                 <img class="productImage" data-th-src="@{https://zupimages.net/up/23/17/wma7.jpg}">
                 <div class="cardText" data-th-text="${product.productDescription}">Description</div>
@@ -25,6 +26,7 @@
                 </div>
 
                 <a data-th-href="@{/api/product/delete/{productId}(productId=${product.productId})}">Supprimer ce Produit</a>
+                <a data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Modifier ce Produit</a>
 
             </li>
         </div>

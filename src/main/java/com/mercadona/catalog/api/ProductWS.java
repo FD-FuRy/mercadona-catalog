@@ -53,10 +53,10 @@ public class ProductWS {
 
     // Map de la méthode Put des produits
     @Operation(operationId = "updateProduct", summary = "updateProduct  ( Modifier un produit existant )")
-    @PutMapping("/put/{productId}")
-    public void updateProduct(@PathVariable(name= "productId") Long productId,
-                              @RequestBody Product product) {
+    @RequestMapping (value ="/put/{productId}", method = {RequestMethod.PUT, RequestMethod.POST})
+    public String updateProduct(@PathVariable(name= "productId") Long productId, Product product) {
         productService.updateProduct(productId, product);
+        return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
     }
 
     // Map de la méthode Delete des produits
