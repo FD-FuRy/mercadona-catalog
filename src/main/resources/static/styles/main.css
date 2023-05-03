@@ -1,38 +1,48 @@
 body {
-    display: inline-block;
     background-color: #dffcef;
     font-size: 16px;
+    width: auto;
+    margin: 0;
 }
 
 
 h1 {
+    text-align: center;
     color: #009660;
 }
 
 h2 {
-    color: #6a6ae2;
+    width: (100% -6px);
+    padding: 10px;
+    background-color: #1c3037;
+    color: #dffcef;
 }
 
-ul {
-    display: flex;
-    flex-wrap: wrap;
+h3, h4 {
+    color: #009660;
+    text-align: center;
 }
 
 li {
     list-style-type: none;
+    margin: 0;
 }
 
-.productZone {
-    width: 95%;
+ul {
+    margin: 0;
 }
 
-.productCardZone {
-    margin-top: 10px;
-    width: 100%;
+.productZone, .categoryZone {
     display: flex;
-    align-content: flex-start;
-    justify-content: space-evenly;
+    margin: 0;
+}
+
+
+.productCardZone, .categoryCardZone {
+    display: flex;
+    align-content: flex-end;
     flex-wrap: wrap;
+    margin: 10px 20px 10px 0;
 }
 
 .productCard {
@@ -45,17 +55,42 @@ li {
     border-width: 1px;
     border-radius: 10px;
     box-shadow: 3px 3px 10px 1px #012c1c;
+    padding-top: 10px;
+    margin: 0 auto 15px;
+}
+
+.adminProductCard {
+    height: 550px;
+}
+
+.categoryCard {
+    display: inline-block;
+    width: 300px;
+    height: 180px;
+    background-color: white;
+    border-style: solid;
+    border-color: #009660;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 1px #012c1c;
     padding: 10px;
-    margin: 5px;
+    margin: auto auto 25px;
+}
+
+.inlineId {
+    display: flex;
+    margin-left: 30px;
+    font-size: 0.8rem;
 }
 
 .productImage {
     width: 280px;
     height: 160px;
     margin: 10px;
+    border-radius: 10px;
 }
 
-.cardTitle , .cardText, cardPrice, .cardLine {
+.cardTitle , .cardText, .cardPrice, .cardLine, .cardId {
     margin-left: 10px;
 }
 
@@ -77,6 +112,7 @@ li {
     font-weight: bold;
     font-size: 1.5rem;
     justify-content: flex-end;
+    margin-right: 15px;
 }
 
 .promotionalPrice {
@@ -120,10 +156,76 @@ li {
 }
 
 .cardCategory {
+    font-size: 0.8rem;
+    margin-left: 10px;
+    color: #706f6f;
 }
 
-#categorySelector {
+.noCardCategory {
+    color: #830303;
+}
+
+.categoryForm {
+    width: 250px;
+    padding: 5px 15px;
+    font-size: 1.1rem;
+}
+
+.categoryCardId {
+    display: flex;
+}
+
+.objectData {
+    font-weight: 700;
+    color: #01382b;
+}
+
+.promotionInfo {
+    margin-left: 20px;
+    color: #818181;
+}
+
+#categorySelector, #adminCategorySelector {
     font-size: 1.3rem;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.labelSelect {
+    margin-left: 20px;
+    color: #494848;
+}
+
+.button {
+    display: inline-block;
+    background-color: green;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    margin: 2px;
+    margin-left: 10px;
+    padding: 10px 20px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.blueButton {
+    background-color: #0648c4;
+}
+
+.redButton {
+    background-color: #9f0707;
+}
+
+.button:hover {
+    background-color: #001811;
+    transform: translateX(+3px);
 }
 
 
