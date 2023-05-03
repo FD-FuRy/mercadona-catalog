@@ -9,24 +9,14 @@
 <body>
     <h1>TEST VISUEL  (THYMELEAF)  DE LA PAGE D'ACCUEIL DE L'APPLICATION MERCADONA :</h1>
     <br>
-
-    <h2>Affichage des catégories présentes dans la BDD (getAllProductsCategory Method):</h2>
-    <ul>
-        <li data-th-each="category : ${allCategoriesList}">
-            <div class="cardLine">ID catégorie:  <div class="objectData" data-th-text="${category.categoryId}">ID vide</div> </div>
-            <div class="cardLine">Nom de la catégorie:  <div class="objectData" data-th-text="${category.categoryName}">Nom vide</div> </div>
-            <br>
-        </li>
-    </ul>
-
-    <h2>Liste des produits du Catalogue :</h2>
-    <div>Trier les produits par:</div>
+    <h2>CATALOGUE DE PRODUITS MERCADONA :</h2>
+    <div class="labelSelect">Trier les produits par:</div>
     <select name="selected-Category" id="categorySelector">
-        <option value="0">Tous les produits</option>
-        <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}"> <div data-th-text="${category.categoryName}"> </div></option>
+        <option value="0">TOUS LES PRODUITS</option>
+        <option data-th-each="category : ${allCategoriesList}" data-th-value="${category.categoryId}" data-th-text="${category.categoryName}"> </option>
     </select>
 
-    <div id="getProductsComponent"> </div>
+    <div class="productZone" id="getProductsComponent"> </div>
 
     <!-- <div data-th-insert="~{/components/getall-product.html}"></div>  -->
 
@@ -50,7 +40,7 @@
         </li>
     </ul> -->
 
-    <a data-th-href="@{/admin/}">Panneau administrateur</a>
+    <a class="backLink" data-th-href="@{/admin/}">Accès au Panneau Administrateur</a>
 
 <script type="text/javascript" data-th-src="@{/scripts/main.js}"></script>
 </body>
