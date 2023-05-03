@@ -2,15 +2,18 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin - Nouveau produit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Nouveau Produit</title>
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
-    <h1> GESTION DES PRODUITS</h1>
+    <h1>PANNEAU D'ADMINISTRATION MERCADONA - GESTION DES PRODUITS</h1>
+
+    <div class="backLink"> ➜ <a data-th-href="@{/admin/}">Retour >> Panneau administrateur</a></div>
+
+    <h2>CREATION D'UN NOUVEAU PRODUIT :</h2>
 
     <div>
-        <h2>CREATION D'UN NOUVEAU PRODUIT :</h2>
-
         <form action="#" data-th-action="@{/api/product/post}"
               data-th-object="${createdProduct}"
               method="POST">
@@ -39,6 +42,5 @@
         </form>
     </div>
 
-    <a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
 </body>
 </html>

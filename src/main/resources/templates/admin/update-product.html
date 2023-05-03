@@ -2,11 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Modification Produit</title>
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
-    <h1> MODIFICATION DU PRODUIT SÉLECTIONNÉ</h1>
+    <h1>PANNEAU D'ADMINISTRATION MERCADONA - GESTION DES PRODUITS</h1>
+
+    <div class="backLink"> ➜ <a data-th-href="@{/admin/}">Retour >> Panneau administrateur</a></div>
+
+    <h2> MODIFICATION DU PRODUIT SÉLECTIONNÉ</h2>
 
     <form action="#" data-th-action="@{/api/product/put/{productId}(productId=${toUpdateProduct.productId})}"
           data-th-object="${toUpdateProduct}"
@@ -37,6 +42,5 @@
         <input type="submit" value="Modifier le produit">
     </form>
 
-    <a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
 </body>
 </html>
