@@ -2,44 +2,47 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin - Gestion catégories</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestion Catégories</title>
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
-    <h1> GESTION DES CATEGORIES D'ARTICLES</h1>
+    <h1>PANNEAU D'ADMINISTRATION MERCADONA - GESTION CATEGORIES D'ARTICLES</h1>
+
+    <div class="backLink"> ➜ <a data-th-href="@{/admin/}"> Retour >> Panneau administrateur</a></div>
+
+    <h2>AJOUTER UNE CATÉGORIE :</h2>
 
     <div>
-        <h2>AJOUTER UNE CATÉGORIE :</h2>
-
         <form action="#" data-th-action="@{/api/category/post}"
               data-th-object="${createdCategory}"
               method="POST">
 
-            <label for="categoryName">Nom de la catégorie:</label>
-            <input type="text" id="categoryName" data-th-field="*{categoryName}" placeholder="catégorie à ajouter">
+            <label for="categoryName">Nom de la catégorie à créer:</label>
+            <input class="categoryForm" type="text" id="categoryName" data-th-field="*{categoryName}" placeholder="catégorie à ajouter">
 
-            <input type="submit" value="Créer la catégorie">
+            <input class="button" type="submit" value="Créer la catégorie">
         </form>
     </div>
 
     <h2>LISTE DES CATÉGORIES EXISTANTES:</h2>
-    <div>
-        <ul>
-            <li data-th-each="category : ${allCategoriesList}">
-                <div class="cardLine">ID catégorie:  <div class="objectData" data-th-text="${category.categoryId}">ID vide</div> </div>
-                <div class="cardLine">Nom de la catégorie:  <div class="objectData" data-th-text="${category.categoryName}">Nom vide</div> </div> <br>
-                <div class="cardLine">Produits de la catégorie:
-                    <div class="cardLine" data-th-each="selectedCategoryProduct : ${category.productList}">
-                        <div class="objectData" data-th-text="${selectedCategoryProduct.productName}">Pas de produit</div> ,
-                    </div>
-                </div> <br>
+    <div class="categoryZone">
+        <ul class="categoryCardZone">
+            <li class="categoryCard" data-th-each="category : ${allCategoriesList}">
+                <div class="categoryCardId">ID_Catégorie_ <div class="objectData" data-th-text="${category.categoryId}">ID vide</div> </div> <br>
+                <div>Nom de la catégorie:  <div class="cardTitle" data-th-text="${category.categoryName}">Nom vide</div> </div> <br><br>
 
-                <a data-th-href="@{/api/category/delete/{categoryId}(categoryId=${category.categoryId})}">Supprimer cette catégorie</a>
-                <br>
+                <div data-th-if="(${category.productList.isEmpty()})">
+                    <div>Il n'y a pas de produit dans cette Catégorie!</div>
+                    <a class="button" data-th-href="@{/api/category/delete/{categoryId}(categoryId=${category.categoryId})}">Supprimer cette catégorie</a>
+                </div>
+                <div data-th-unless="(${category.productList.isEmpty()})">
+                    <div class="noCardCategory">Cette Catégorie contient au moins un produit</div>
+                    <a class="button redButton" data-th-href="@{/api/category/delete/{categoryId}(categoryId=${category.categoryId})}">Supprimer cette catégorie</a>
+                </div>
             </li>
         </ul>
     </div>
 
-    <a data-th-href="@{/admin/}">Retour au Panneau administrateur</a>
 </body>
 </html>
