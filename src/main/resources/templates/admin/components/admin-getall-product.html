@@ -1,12 +1,18 @@
 <div>
     <ul class="productZone">
         <div class="productCardZone">
-            <li class="productCard" data-th-each="product : ${allProductsList}">
+            <li class="productCard adminProductCard" data-th-each="product : ${allProductsList}">
                 <div class="cardTitle" data-th-text="${product.productName}">Nom Produit</div>
-                <div class="cardline" data-th-text="${product.productId}">ID Produit</div>
-                <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
+                <div data-th-if="${product.productCategory}">
+                    <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
+                </div>
+                <div data-th-unless="${product.productCategory}">
+                    <div class="cardCategory noCardCategory">Pas de catégorie: veuillez en choisir une!</div>
+                </div>
+                <div class="inlineId">ID produit:<div class="cardId" data-th-text="${product.productId}">ID Produit</div></div>
                 <img class="productImage" data-th-src="@{https://zupimages.net/up/23/17/wma7.jpg}">
                 <div class="cardText" data-th-text="${product.productDescription}">Description</div>
+
                 <div class="cardLine">
                     <div class="cardPrice promotionalPrice" data-th-if="${product.promotion}">
                         <div data-th-text="${product.productPrice - (product.productPrice * product.promotion.discountPercentage / 100)}">Prix remisé</div> <div> €   </div> <div class="stripedPrice" data-th-text="${product.productPrice}">Prix normal</div>
@@ -14,19 +20,31 @@
                     <div class="cardPrice normalPrice" data-th-unless="${product.promotion}">
                         <div data-th-text="${product.productPrice}">Prix normal</div> €
                     </div>
+                </div>
+
+                <div class="cardSection">
+                    <a class="button blueButton" data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Modifier ce Produit</a>
+                    <a class="button redButton" data-th-href="@{/api/product/delete/{productId}(productId=${product.productId})}">Supprimer ce Produit</a>
+                    <div class="promotionInfo"> -------------------------------------------- </div>
                     <div class="cardPromotion" data-th-if="${product.promotion}">
                         <div>( Promotion: </div> <div data-th-text="${product.promotion.discountPercentage}">Pourcentage</div> <div>% de remise )</div>  <br>
                     </div>
-                    <div data-th-unless="${product.promotion}"></div>
+                    <div class="promotionInfo" data-th-unless="${product.promotion}">Il n'y a aucune Promotion</div>
                     <div class="cardPromotionDate" data-th-if="${product.promotion}">
                         <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${product.promotion.promotionStartDate}"> </div> <br>
                         <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${product.promotion.promotionEndDate}"> </div>
                     </div>
-                    <div data-th-unless="${product.promotion}"></div>
-                </div>
+                    <div class="promotionInfo" data-th-unless="${product.promotion}">présente pour ce produit.</div>
+                    <div class="promotionInfo"> -------------------------------------------- </div>
+                    <div data-th-if="${product.promotion}">
+                        <a class="button redButton" data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Supprimer la Promotion</a>
+                    </div>
+                    <div data-th-unless="${product.promotion}">
+                        <a class="button" data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Créer une Promotion</a>
+                    </div>
 
-                <a data-th-href="@{/api/product/delete/{productId}(productId=${product.productId})}">Supprimer ce Produit</a>
-                <a data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Modifier ce Produit</a>
+
+                </div>
 
             </li>
         </div>

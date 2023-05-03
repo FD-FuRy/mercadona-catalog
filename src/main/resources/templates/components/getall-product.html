@@ -1,4 +1,4 @@
-<div>
+<div class="productZone">
     <ul class="productZone">
         <div class="productCardZone">
             <li class="productCard" data-th-each="product : ${allProductsList}">
@@ -22,7 +22,6 @@
                     </div>
                     <div data-th-unless="${product.promotion}"></div>
                 </div> <br>
-                <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
             </li>
         </div>
     </ul>
