@@ -37,13 +37,6 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Override
     public void createPromotion(Promotion promotion, Product product) {
-        LocalDate dateTest1 = LocalDate.now();
-        LocalDate dateTest2 = LocalDate.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        // LocalDate formatedStartDate = LocalDate.parse(dateTest1, dateTimeFormatter);
-        // LocalDate formatedEndDate = LocalDate.parse(dateTest2, dateTimeFormatter);
-        // promotion.setPromotionStartDate(dateTest1);
-        // promotion.setPromotionEndDate(dateTest2);
         promotion.setProduct(product);
         product.setPromotion(promotion);
         promotionRepository.save(promotion);
