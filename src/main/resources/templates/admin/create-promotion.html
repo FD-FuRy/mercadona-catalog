@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Nouveau Produit</title>
+    <link data-th-href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+    <h1>PANNEAU D'ADMINISTRATION MERCADONA - GESTION DES PRODUITS</h1>
+
+    <div class="backLink"> ➜ <a data-th-href="@{/admin/}">Retour >> Panneau administrateur</a></div>
+
+    <h2>CREATION D'UN NOUVEAU PRODUIT :</h2>
+
+    <div>
+        <form action="#" data-th-action="@{/api/promotion/post/{productId}(productId=${selectedProduct.productId})}"
+            data-th-object="${createdPromotion}"
+            method="POST">
+
+            <label for="promotionStartDate">Date de début de la promotion :</label>
+            <input type="date" id="promotionStartDate" data-th-field="*{promotionStartDate}" required>
+
+            <label for="promotionEndDate">Date de fin de la promotion :</label>
+            <input type="date" id="promotionEndDate" data-th-field="*{promotionEndDate}" required>  -->
+
+            <label for="discountPercentage">Pourcentage de remise :</label>
+            <input type="number" id="discountPercentage" data-th-field="*{discountPercentage}" placeholder="pourcentage (entre 1 et 100)" required>
+
+            <input type="submit" value="Créer la Promotion">
+        </form>
+    </div>
+
+</body>
+</html>
