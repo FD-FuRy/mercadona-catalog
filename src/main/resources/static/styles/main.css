@@ -136,10 +136,12 @@ ul {
 .cardPromotion {
     color: #8c0303;
     font-weight: 700;
+    margin-left: 30px;
 }
 
 .cardPromotionDate {
     display: flex;
+    margin-left: 40px;
 }
 
 .cardDateText, .cardDate {
@@ -226,6 +228,10 @@ ul {
 .button:hover {
     background-color: #001811;
     transform: translateX(+3px);
+}
+
+.backLink {
+    margin-left: 20px;
 }
 
 

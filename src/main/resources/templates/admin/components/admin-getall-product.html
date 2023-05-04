@@ -31,16 +31,16 @@
                     </div>
                     <div class="promotionInfo" data-th-unless="${product.promotion}">Il n'y a aucune Promotion</div>
                     <div class="cardPromotionDate" data-th-if="${product.promotion}">
-                        <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${product.promotion.promotionStartDate}"> </div> <br>
-                        <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${product.promotion.promotionEndDate}"> </div>
+                        <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${#temporals.format(product.promotion.promotionStartDate, 'dd/MM/yyyy')}"> </div> <br>
+                        <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${#temporals.format(product.promotion.promotionEndDate, 'dd/MM/yyyy')}"> </div>
                     </div>
                     <div class="promotionInfo" data-th-unless="${product.promotion}">présente pour ce produit.</div>
                     <div class="promotionInfo"> -------------------------------------------- </div>
                     <div data-th-if="${product.promotion}">
-                        <a class="button redButton" data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Supprimer la Promotion</a>
+                        <a class="button redButton" data-th-href="@{/api/promotion/delete/{promotionId}(promotionId=${product.promotion.promotionId})}">Supprimer la Promotion</a>
                     </div>
                     <div data-th-unless="${product.promotion}">
-                        <a class="button" data-th-href="@{/admin/product/put/{productId}(productId=${product.productId})}">Créer une Promotion</a>
+                        <a class="button" data-th-href="@{/admin/promotion/create/{productId}(productId=${product.productId})}">Créer une Promotion</a>
                     </div>
 
 

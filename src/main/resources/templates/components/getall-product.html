@@ -17,8 +17,8 @@
                     </div>
                     <div data-th-unless="${product.promotion}"></div>
                     <div class="cardPromotionDate" data-th-if="${product.promotion}">
-                        <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${product.promotion.promotionStartDate}"> </div> <br>
-                        <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${product.promotion.promotionEndDate}"> </div>
+                        <div class="cardDateText"> du : </div> <div class="cardDate" data-th-text="${#temporals.format(product.promotion.promotionStartDate, 'dd/MM/yyyy')}"> </div> <br>
+                        <div class="cardDateText"> au : </div> <div class="cardDate" data-th-text="${#temporals.format(product.promotion.promotionEndDate, 'dd/MM/yyyy')}"> </div>
                     </div>
                     <div data-th-unless="${product.promotion}"></div>
                 </div> <br>
