@@ -37,7 +37,7 @@ public class ProductWS {
     }
 
     //MAP de la méthode Get By (catégorie) des produits
-    @GetMapping("/get/{categoryId}")
+    @GetMapping("/getAllBy/{categoryId}")
     public List<Product> getAllProductsByCategory(@PathVariable(name = "categoryId") Long categoryId) {
         ProductCategory selectedCategory = productCategoryService.getProductsCategoryById(categoryId);
         return productService.getAllProductsByCategory(selectedCategory);
@@ -48,7 +48,7 @@ public class ProductWS {
     @PostMapping("/post")
     public String createProduct(Product product) {
         productService.createProduct(product);
-        return "redirect:/admin/product/create";  //redirection vers le modelandview de création de produit après la méthode Post du formulaire
+        return "redirect:/admin/";  //redirection vers le modelandview de création de produit après la méthode Post du formulaire
     }
 
     // Map de la méthode Put des produits
