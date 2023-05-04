@@ -2,6 +2,7 @@ package com.mercadona.catalog.api;
 
 import com.mercadona.catalog.pojo.Product;
 import com.mercadona.catalog.pojo.ProductCategory;
+import com.mercadona.catalog.pojo.Promotion;
 import com.mercadona.catalog.services.ProductCategoryService;
 import com.mercadona.catalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,18 @@ public class ModelAdminController {
         getCategoryManagementData.addObject("createdCategory", productCategory);
         getCategoryManagementData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         return getCategoryManagementData;
+    }
+
+    //MAP du ModelAndView de la page Admin de création d'une promotion:
+    @GetMapping ("/promotion/create/{productId}")
+    public ModelAndView createPromotion(@PathVariable(name= "productId") Long productId) {
+        ModelAndView getNewPromotionData = new ModelAndView();
+        getNewPromotionData.setViewName("admin/create-promotion.html");
+        Promotion promotion = new Promotion();
+        promotion.setProduct(productService.getProductById(productId));
+        getNewPromotionData.addObject("createdPromotion", promotion);
+        getNewPromotionData.addObject("selectedProduct", productService.getProductById(productId));
+        return getNewPromotionData;
     }
 
 }
