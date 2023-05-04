@@ -1,8 +1,9 @@
 package com.mercadona.catalog.pojo;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Promotions")
@@ -18,25 +19,27 @@ public class Promotion {
     private Long promotionId;
 
     @Column(name = "promotionStartDate")
-    private Date promotionStartDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate promotionStartDate;
     @Column(name = "promotionEndDate")
-    private Date promotionEndDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate promotionEndDate;
     @Column(name = "discountPercentage")
     private int discountPercentage;
 
-    @OneToOne(mappedBy = "promotion")
+    @OneToOne(mappedBy = "promotion", cascade = CascadeType.ALL)
     private Product product;
 
     //Constructeurs de la classe Promotion:
     public Promotion() {
         //Constructeur vide requis par Hibernate
     }
-    public Promotion(Date promotionStartDate, Date promotionEndDate, int discountPercentage) {
+    public Promotion(LocalDate promotionStartDate, LocalDate promotionEndDate, int discountPercentage) {
         this.promotionStartDate = promotionStartDate;
         this.promotionEndDate = promotionEndDate;
         this.discountPercentage = discountPercentage;
     }
-    public Promotion(Long promotionId, Date promotionStartDate, Date promotionEndDate, int discountPercentage, Product product) {
+    public Promotion(Long promotionId, LocalDate promotionStartDate, LocalDate promotionEndDate, int discountPercentage, Product product) {
         this.promotionId = promotionId;
         this.promotionStartDate = promotionStartDate;
         this.promotionEndDate = promotionEndDate;
@@ -53,18 +56,18 @@ public class Promotion {
     }
 
     //Getters/Setters de la date de début de Promotion:
-    public Date getPromotionStartDate() {
+    public LocalDate getPromotionStartDate() {
         return promotionStartDate;
     }
-    public void setPromotionStartDate(Date promotionStartDate) {
+    public void setPromotionStartDate(LocalDate promotionStartDate) {
         this.promotionStartDate = promotionStartDate;
     }
 
     //Getters/Setters de la date de fin de Promotion:
-    public Date getPromotionEndDate() {
+    public LocalDate getPromotionEndDate() {
         return promotionEndDate;
     }
-    public void setPromotionEndDate(Date promotionEndDate) {
+    public void setPromotionEndDate(LocalDate promotionEndDate) {
         this.promotionEndDate = promotionEndDate;
     }
 
