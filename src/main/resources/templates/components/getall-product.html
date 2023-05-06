@@ -3,7 +3,7 @@
         <div class="productCardZone">
             <li class="productCard" data-th-each="product : ${allProductsList}">
                 <div class="cardTitle" data-th-text="${product.productName}">Nom Produit</div>
-                <img class="productImage" data-th-src="@{https://zupimages.net/up/23/17/wma7.jpg}">
+                <img class="productImage" id="mainProductImage" data-th-alt="${'Image du produit -' + product.productName + '- indisponible ou introuvable!!!'}" data-th-src="${product.imageDirectory}">
                 <div class="cardText" data-th-text="${product.productDescription}">Description</div>
                 <div class="cardLine">
                     <div class="cardPrice promotionalPrice" data-th-if="${product.promotion}">

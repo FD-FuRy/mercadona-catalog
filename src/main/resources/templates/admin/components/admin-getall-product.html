@@ -7,10 +7,10 @@
                     <div class="cardCategory" data-th-text="${product.productCategory.categoryName}">Catégorie du produit</div>
                 </div>
                 <div data-th-unless="${product.productCategory}">
-                    <div class="cardCategory noCardCategory">Pas de catégorie: veuillez en choisir une!</div>
+                    <div class="cardCategory redText">Pas de catégorie: veuillez en choisir une!</div>
                 </div>
                 <div class="inlineId">ID produit:<div class="cardId" data-th-text="${product.productId}">ID Produit</div></div>
-                <img class="productImage" data-th-src="@{https://zupimages.net/up/23/17/wma7.jpg}">
+                <img class="productImage" data-th-alt="${'Image du produit -' + product.productName + '- indisponible ou introuvable!!!'}" data-th-src="${product.imageDirectory}">
                 <div class="cardText" data-th-text="${product.productDescription}">Description</div>
 
                 <div class="cardLine">
