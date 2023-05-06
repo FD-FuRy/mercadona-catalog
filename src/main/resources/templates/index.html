@@ -7,9 +7,10 @@
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
-    <h1>TEST VISUEL  (THYMELEAF)  DE LA PAGE D'ACCUEIL DE L'APPLICATION MERCADONA :</h1>
-    <br>
-    <h2>CATALOGUE DE PRODUITS MERCADONA :</h2>
+    <div class="fragment" data-th-insert="~{components/mainHeader :: headerFragment}"></div>
+
+    <h1>CATALOGUE DE PRODUITS MERCADONA :</h1> <br>
+
     <div class="labelSelect">Trier les produits par:</div>
     <select name="selected-Category" id="categorySelector">
         <option value="0">TOUS LES PRODUITS</option>
@@ -18,29 +19,8 @@
 
     <div class="productZone" id="getProductsComponent"> </div>
 
-    <!-- <div data-th-insert="~{/components/getall-product.html}"></div>  -->
+    <div class="fragment" data-th-insert="~{components/mainFooter :: footerFragment}"></div>
 
-
-    <!-- <div data-th-if=""></div>">On affiche tous les produits</div>
-    <div data-th-unless="">On affiche seulement les produits de la catégorie : <div id="selectedCategory"> </div></div> -->
-
-
-    <!-- <h2>Liste des Promotions existantes dans la BDD (getAllPromotions Method):</h2>
-    <ul>
-        <li data-th-each="promotion : ${allPromotionsList}">
-            <div class="cardLine">ID promotion:  <div class="objectData" data-th-text="${promotion.promotionId}">ID vide</div> </div>
-            <div class="cardLine">Date de début de promo:  <div class="objectData" data-th-text="${promotion.promotionStartDate}">pas de date de début</div> </div>
-            <div class="cardLine">Date de fin de promo:  <div class="objectData" data-th-text="${promotion.promotionEndDate}">pas de date de fin</div> </div>
-            <div class="cardLine">Pourcentage de remise:  <div class="objectData" data-th-text="${promotion.discountPercentage}">pas de remise</div> % </div>
-            <div class="cardLine">Produit concerné par la promo:
-                <div class="objectData" data-th-text="${promotion.product.productName}"></div> (Dont l'ID est :
-                <div class="objectData" data-th-text="${promotion.product.productId}"></div> )
-            </div>
-            <br>
-        </li>
-    </ul> -->
-
-    <a class="backLink" data-th-href="@{/admin/}">Accès au Panneau Administrateur</a>
 
 <script type="text/javascript" data-th-src="@{/scripts/main.js}"></script>
 </body>
