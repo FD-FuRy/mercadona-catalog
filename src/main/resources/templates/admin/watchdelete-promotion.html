@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Contrôle Promotions</title>
+  <link data-th-href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+    <div data-th-insert="~{admin/components/adminHeader :: adminHeaderFragment}"></div> <br>
+    <div class="centerDiv"> <a class="button greyButton" data-th-href="@{/admin/}">Panneau Admin - Accueil</a> </div> <br>
+
+    <h2>LISTE DES PROMOTIONS EXISTANTES :</h2>
+
+    <div class="promotionZone">
+        <ul class="promotionCardZone">
+            <li class="promotionCard" data-th-each="promotion : ${allPromotionsList}">
+                <div class="inlineId">ID promotion:  <div class="cardId objectData" data-th-text="${promotion.promotionId}">ID vide</div> </div> <br>
+
+                <div class="discountLine">Pourcentage de remise:  <div class="objectData" data-th-text="${promotion.discountPercentage}">pas de remise</div> % </div> <br><br>
+
+                <div class="discountLine" data-th-if="${promotion.product}">
+                    <div>ID du Produit concerné par la promo:  </div> <div class="cardText objectData" data-th-text="${promotion.product.productId}"></div>
+                </div>
+                <div class="discountLine" data-th-if="${promotion.product}">
+                    <div>Produit: </div><div class="cardId objectData" data-th-text="${promotion.product.productName}"></div>
+                </div>
+                <div class="redText strong" data-th-unless="${promotion.product}"> ⚠️PAS DE PRODUIT RELIÉ A CETTE PROMOTION !!! VOUS DEVEZ SUPPRIMER CETTE PROMO !!!</div> <br><br>
+
+                <div class="cardPromotionDate">
+                    <div class="cardDateText">Début de promo:</div>  <div class="cardDate strong" data-th-text="${#temporals.format(promotion.promotionStartDate, 'dd/MM/yyyy')}"> </div>
+                </div>
+                <div class="cardPromotionDate">
+                    <div class="cardDateText">Fin de promo:</div>  <div class="cardDate strong" data-th-text="${#temporals.format(promotion.promotionEndDate, 'dd/MM/yyyy')}"> </div> <br>
+                </div>
+                <br>
+                <a class="button redButton" data-th-href="@{/api/promotion/delete/{promotionId}(promotionId=${promotion.promotionId})}">Supprimer la Promotion</a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="fragment" data-th-insert="~{components/mainFooter :: footerFragment}"></div>
+
+</body>
+</html>

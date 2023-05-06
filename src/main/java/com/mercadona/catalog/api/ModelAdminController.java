@@ -5,6 +5,7 @@ import com.mercadona.catalog.pojo.ProductCategory;
 import com.mercadona.catalog.pojo.Promotion;
 import com.mercadona.catalog.services.ProductCategoryService;
 import com.mercadona.catalog.services.ProductService;
+import com.mercadona.catalog.services.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,9 @@ public class ModelAdminController {
     private ProductService productService;
     @Autowired
     private ProductCategoryService productCategoryService;
+
+    @Autowired
+    private PromotionService promotionService;
 
     // MAP du ModelAndView de la page d'accueil du panneau administrateur:
     @GetMapping
@@ -93,6 +97,15 @@ public class ModelAdminController {
         getNewPromotionData.addObject("createdPromotion", promotion);
         getNewPromotionData.addObject("selectedProduct", productService.getProductById(productId));
         return getNewPromotionData;
+    }
+
+    //MAP du ModelAndView de la page Admin d'affichage des promotions:
+    @GetMapping ("/promotion/manage")
+    public ModelAndView managePromotions() {
+        ModelAndView getAllPromotionsList = new ModelAndView();
+        getAllPromotionsList.setViewName("admin/watchdelete-promotion.html");
+        getAllPromotionsList.addObject("allPromotionsList", promotionService.getAllPromotions());
+        return getAllPromotionsList;
     }
 
 }
