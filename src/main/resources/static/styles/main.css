@@ -1,26 +1,45 @@
 body {
-    background-color: #dffcef;
+    background-color: #e9fcef;
     font-size: 16px;
     width: auto;
     margin: 0;
 }
 
-
-h1 {
-    text-align: center;
-    color: #009660;
+header, footer {
+    background-color: #229e6b;
+    color: white;
 }
 
-h2 {
+.headerLogoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.headerLogo {
+    width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2 {
     width: (100% -6px);
-    padding: 10px;
+    margin: 0;
+    padding: 8px;
     background-color: #1c3037;
     color: #dffcef;
 }
 
+h2 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
 h3, h4 {
-    color: #009660;
-    text-align: center;
+    color: #229e6b;
 }
 
 li {
@@ -32,15 +51,36 @@ ul {
     margin: 0;
 }
 
-.productZone, .categoryZone {
+.adminTITLE {
+    background-color: #14563e;
+    color: #e8b943;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+.headerFragment, .footerFragment {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.productZone, .categoryZone, .promotionZone {
     display: flex;
     margin: 0;
+    min-height: 60vh;
+    align-content: center;
+}
+
+.formZone {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
 }
 
 
-.productCardZone, .categoryCardZone {
+.productCardZone, .categoryCardZone, .promotionCardZone {
     display: flex;
-    align-content: flex-end;
+    align-content: flex-start;
     flex-wrap: wrap;
     margin: 10px 20px 10px 0;
 }
@@ -48,7 +88,7 @@ ul {
 .productCard {
     display: inline-block;
     width: 300px;
-    height: 400px;
+    height: 350px;
     background-color: white;
     border-style: solid;
     border-color: #009660;
@@ -60,10 +100,10 @@ ul {
 }
 
 .adminProductCard {
-    height: 550px;
+    height: 560px;
 }
 
-.categoryCard {
+.categoryCard, .promotionCard {
     display: inline-block;
     width: 300px;
     height: 180px;
@@ -77,10 +117,32 @@ ul {
     margin: auto auto 25px;
 }
 
+.promotionCard {
+    height: 280px;
+}
+
+.formCard {
+    display: inline-block;
+}
+
+.inputLine {
+    width: 480px;
+    padding: 5px 12px;
+    font-size: 1.1rem;
+}
+
+.selectInputLine {
+    width: auto;
+}
+
 .inlineId {
     display: flex;
     margin-left: 30px;
     font-size: 0.8rem;
+}
+
+.discountLine {
+    display: flex;
 }
 
 .productImage {
@@ -163,13 +225,9 @@ ul {
     color: #706f6f;
 }
 
-.noCardCategory {
-    color: #830303;
-}
-
 .categoryForm {
-    width: 250px;
-    padding: 5px 15px;
+    width: 280px;
+    padding: 5px 12px;
     font-size: 1.1rem;
 }
 
@@ -225,14 +283,49 @@ ul {
     background-color: #9f0707;
 }
 
+.greyButton {
+    background-color: #3a3a3a;
+}
+
+.biggerTextButton {
+    font-size: 1.3rem;
+}
+
 .button:hover {
     background-color: #001811;
     transform: translateX(+3px);
 }
 
-.backLink {
-    margin-left: 20px;
+.centerDiv {
+    text-align: center;
 }
 
+.strong {
+    font-weight: 700;
+}
 
+.blackText {
+    color: #050505;
+}
 
+.redText {
+    color: #6c0202;
+}
+
+.moremargin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 900px) {
+    .headerLogo {
+        width: 900px;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .inputLine {
+        width: 300px;
+    }
+}
