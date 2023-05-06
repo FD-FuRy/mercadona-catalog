@@ -12,13 +12,14 @@
 
     <h2>AJOUTER UNE CATÉGORIE :</h2>
 
-    <div class="centerDiv">
+    <div class="centerDiv moremargin">
         <form action="#" data-th-action="@{/api/category/post}"
               data-th-object="${createdCategory}"
               method="POST">
 
             <label for="categoryName">Nom de la catégorie à créer:</label>
-            <input class="categoryForm" type="text" minlength="3" maxlength="30" required id="categoryName" data-th-field="*{categoryName}" placeholder="catégorie à ajouter">
+            <input class="categoryForm" type="text" id="categoryName" data-th-field="*{categoryName}" placeholder="nom entre 5 et 30 caractères"
+                   minlength="5" maxlength="30" required>
 
             <input class="button" type="submit" value="Créer la catégorie">
         </form>

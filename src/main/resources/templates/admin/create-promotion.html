@@ -7,29 +7,34 @@
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
-    <h1>PANNEAU D'ADMINISTRATION MERCADONA - GESTION DES PRODUITS</h1>
+    <div data-th-insert="~{admin/components/adminHeader :: adminHeaderFragment}"></div> <br>
+    <div class="centerDiv"> <a class="button greyButton" data-th-href="@{/admin/}">Panneau Admin - Accueil</a> </div> <br>
 
-    <div class="backLink"> ➜ <a data-th-href="@{/admin/}">Retour >> Panneau administrateur</a></div>
+    <h2>CREATION D'UNE PROMOTION :</h2> <br> <br> <br> <br>
 
-    <h2>CREATION D'UN NOUVEAU PRODUIT :</h2>
+    <div class="formZone">
+        <form class="formCard"
+              action="#" data-th-action="@{/api/promotion/post/{productId}(productId=${selectedProduct.productId})}"
+              data-th-object="${createdPromotion}"
+              method="POST">
 
-    <div>
-        <form action="#" data-th-action="@{/api/promotion/post/{productId}(productId=${selectedProduct.productId})}"
-            data-th-object="${createdPromotion}"
-            method="POST">
+            <label for="promotionStartDate">Date de début de la promotion :</label> <br>
+            <input class="inputLine" type="date" id="promotionStartDate" data-th-field="*{promotionStartDate}" required> <br> <br>
 
-            <label for="promotionStartDate">Date de début de la promotion :</label>
-            <input type="date" id="promotionStartDate" data-th-field="*{promotionStartDate}" required>
+            <label for="promotionEndDate">Date de fin de la promotion :</label> <br>
+            <input class="inputLine" type="date" id="promotionEndDate" data-th-field="*{promotionEndDate}" required>  --> <br> <br>
 
-            <label for="promotionEndDate">Date de fin de la promotion :</label>
-            <input type="date" id="promotionEndDate" data-th-field="*{promotionEndDate}" required>  -->
+            <label for="discountPercentage">Pourcentage de remise (entre 1 et 100) :</label> <br>
+            <input class="inputLine" type="number" id="discountPercentage" data-th-field="*{discountPercentage}" placeholder="pourcentage (entre 1 et 100)"
+                   step="1" min="1" max="100" required> <br> <br> <br> <br>
 
-            <label for="discountPercentage">Pourcentage de remise :</label>
-            <input type="number" id="discountPercentage" data-th-field="*{discountPercentage}" placeholder="pourcentage (entre 1 et 100)" required>
-
-            <input type="submit" value="Créer la Promotion">
+            <div class="centerDiv">
+                <input class="button biggerTextButton" type="submit" value="Créer la promotion">
+            </div>
         </form>
     </div>
+
+    <div class="fragment" data-th-insert="~{components/mainFooter :: footerFragment}"></div>
 
 </body>
 </html>
