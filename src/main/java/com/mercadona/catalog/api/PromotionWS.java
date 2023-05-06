@@ -56,10 +56,19 @@ public class PromotionWS {
     @Operation(operationId = "deletePromotion", summary = "deletePromotion  ( Supprimer une promotion )")
     @RequestMapping (value ="/delete/{promotionId}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deletePromotion(@PathVariable(name = "promotionId") Long promotionId) {
-        Product newProduct = productService.getProductById(promotionService.getPromotionById(promotionId).getProduct().getProductId());
-        newProduct.setPromotion(null);
+        Product oldProduct = new Product();
+        Boolean productInside;
+        if (promotionService.getPromotionById(promotionId).getProduct() != null) {
+            oldProduct = productService.getProductById(promotionService.getPromotionById(promotionId).getProduct().getProductId());
+            oldProduct.setPromotion(null);
+            productInside = true;
+        }   else {
+            productInside = false;
+        }
         promotionService.deletePromotion(promotionId);
-        productService.createProduct(newProduct);
+        if (productInside) {
+            productService.createProduct(oldProduct);
+        }
         return "redirect:/admin/";
     }
 
