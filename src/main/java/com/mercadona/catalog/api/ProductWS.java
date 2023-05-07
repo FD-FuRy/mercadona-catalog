@@ -4,6 +4,7 @@ import com.mercadona.catalog.pojo.Product;
 import com.mercadona.catalog.pojo.ProductCategory;
 import com.mercadona.catalog.services.ProductCategoryService;
 import com.mercadona.catalog.services.ProductService;
+import com.mercadona.catalog.services.PromotionService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,9 @@ public class ProductWS {
 
     @Autowired    //Instanciation d'un Bean par Spring: appel des méthodes ProductCategoryService avec autoconfiguration
     private ProductCategoryService productCategoryService;
+
+    @Autowired    //Instanciation d'un Bean par Spring: appel des méthodes PromotionService avec autoconfiguration
+    private PromotionService promotionService;
 
     // Map de la méthode Get des produits
     @Operation(operationId = "getAllProducts", summary = "getAllProducts  ( Afficher tous les produits )")
@@ -63,8 +67,14 @@ public class ProductWS {
     @Operation(operationId = "deleteProduct", summary = "deleteProduct  ( Supprimer un produit )")
     @RequestMapping (value ="/delete/{productId}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteProduct(@PathVariable(name= "productId") Long productId) {
-        productService.deleteProduct(productId);
-        return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+        if (productService.getProductById(productId).getPromotion() == null) {
+            productService.deleteProduct(productId);
+            return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+        }   else {
+            promotionService.deletePromotion(productService.getProductById(productId).getPromotion().getPromotionId());
+            productService.deleteProduct(productId);
+            return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+        }
     }
 
 }
