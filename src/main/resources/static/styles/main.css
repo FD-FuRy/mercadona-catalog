@@ -125,6 +125,18 @@ ul {
     display: inline-block;
 }
 
+
+.confirmCard {
+    background-color: white;
+    border-style: solid;
+    border-color: #009660;
+    border-width: 1px;
+    border-radius: 10px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    text-align: center;
+}
+
 .inputLine {
     width: 480px;
     padding: 5px 12px;
@@ -298,6 +310,10 @@ ul {
 
 .centerDiv {
     text-align: center;
+}
+
+.biggerText {
+    font-size: 1.2rem;
 }
 
 .strong {

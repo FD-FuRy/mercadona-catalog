@@ -20,7 +20,7 @@ public class ProductCategory {
     @Column(name = "categoryName")
     private String categoryName;
 
-    @OneToMany(mappedBy = "productCategory")
+    @OneToMany(mappedBy = "productCategory", cascade = CascadeType.ALL)
     private List<Product> productList;
 
     // constructeurs de la classe Categorie des produits:

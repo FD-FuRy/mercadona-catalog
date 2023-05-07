@@ -87,6 +87,15 @@ public class ModelAdminController {
         return getCategoryManagementData;
     }
 
+    //MAP du ModelAndView de la page Admin de gestion de confirmation de suppression de catégories:
+    @GetMapping ("/category/delete-confirm/{categoryId}")
+    public ModelAndView manageCategory(@PathVariable(name= "categoryId") Long categoryId) {
+        ModelAndView getDeleteCategoryConfirmation = new ModelAndView();
+        getDeleteCategoryConfirmation.setViewName("admin/categorydelete-confirm.html");
+        getDeleteCategoryConfirmation.addObject("selectedCategory", productCategoryService.getProductsCategoryById(categoryId));
+        return getDeleteCategoryConfirmation;
+    }
+
     //MAP du ModelAndView de la page Admin de création d'une promotion:
     @GetMapping ("/promotion/create/{productId}")
     public ModelAndView createPromotion(@PathVariable(name= "productId") Long productId) {
