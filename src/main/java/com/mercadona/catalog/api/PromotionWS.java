@@ -47,8 +47,7 @@ public class PromotionWS {
     // Map de la méthode Put des promotions
     @Operation(operationId = "updatePromotion", summary = "updatePromotion  ( Modifier une promotion existante )")
     @PutMapping("/put/{promotionId}")
-    public void updatePromotion(@PathVariable(name = "promotionId") Long promotionId,
-                                @RequestBody Promotion promotion) {
+    public void updatePromotion(@PathVariable(name = "promotionId") Long promotionId, Promotion promotion) {
         promotionService.updatePromotion(promotionId, promotion);
     }
 

@@ -34,8 +34,15 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateProduct(Long productId, Product product) {
-        this.deleteProduct(productId);
-        productRepository.save(product);
+        this.getProductById(productId).setProductName(product.getProductName());
+        this.getProductById(productId).setProductDescription(product.getProductDescription());
+        this.getProductById(productId).setProductPrice(product.getProductPrice());
+        this.getProductById(productId).setImageDirectory(product.getImageDirectory());
+        this.getProductById(productId).setProductCategory(product.getProductCategory());
+        if (product.getPromotion() != null) {    //récupération de la promo (si promo il y avait) :
+            this.getProductById(productId).setPromotion(getProductById(productId).getPromotion());
+        }
+        productRepository.save(this.getProductById(productId));
     }
 
     @Override
