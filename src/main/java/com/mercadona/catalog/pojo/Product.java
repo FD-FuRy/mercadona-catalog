@@ -108,4 +108,19 @@ public class Product {
         this.promotion = promotion;
     }
 
+    //méthode appelée dans les vues pour afficher le prix recalculé en fonction de la promotion:
+    public float calculatePriceWithDiscount(double productPrice, int discountPercentage) {
+        float priceWithDiscount;
+        int intermediateCalculation;
+        double discount;
+        // passage par un entier intermédiaire qui sera retransformé en double (pour arrêter à 2 chiffres après la virgule en le redivisant par 100)
+        intermediateCalculation = (int)Math.round(productPrice * ((double)discountPercentage / 100) * 100);
+        // on obtient un double bloqué à maximum 2 chiffres après la virgule (correspondant au montant de la remise)
+        discount = (double)intermediateCalculation / 100;
+        // calcul du nouveau prix ( prix produit - montant de la remise )
+        priceWithDiscount = (float)(productPrice - discount);
+        // retour du nouveau prix calculé
+        return priceWithDiscount;
+    }
+
 }
