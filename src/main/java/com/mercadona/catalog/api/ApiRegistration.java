@@ -13,4 +13,6 @@ public interface ApiRegistration {
 
     String REST_PROMOTION = "promotion/";
 
+    String REST_USER = "user/";
+
 }
