@@ -1,7 +1,7 @@
 package com.mercadona.catalog.services.impl;
 
 import com.mercadona.catalog.dataTransferObject.RegisterUserDto;
-import com.mercadona.catalog.pojo.User;
+import com.mercadona.catalog.pojo.Users;
 import com.mercadona.catalog.pojo.UserRole;
 import com.mercadona.catalog.repository.UserRepository;
 import com.mercadona.catalog.repository.UserRoleRepository;
@@ -23,25 +23,25 @@ public class UserServiceImpl implements UserService {
     private UserRoleRepository userRoleRepository;
 
     @Override
-    public List<User> getAllUsers() {
+    public List<Users> getAllUsers() {
         return userRepository.findAll();
     };
 
     @Override
-    public User getUserById(Long userId) {
-        Optional<User> userByIdOptional = userRepository.findById(userId);
+    public Users getUserById(Long userId) {
+        Optional<Users> userByIdOptional = userRepository.findById(userId);
         return  userByIdOptional.orElse(null);
     };
 
     @Override
-    public User getUserByName(String userName) {
-        Optional<User> userByNameOptional =  userRepository.findByUserName(userName);
+    public Users getUserByName(String userName) {
+        Optional<Users> userByNameOptional =  userRepository.findByUserName(userName);
         return userByNameOptional.orElse(null);
     };
 
     @Override
-    public User getUserByEmail(String email) {
-        Optional<User> userByEmailOptional =  userRepository.findByEmail(email);
+    public Users getUserByEmail(String email) {
+        Optional<Users> userByEmailOptional =  userRepository.findByEmail(email);
         return userByEmailOptional.orElse(null);
     };
 
@@ -52,13 +52,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(RegisterUserDto registerUserDto) {
-        User user = new User();
-        user.setUserName(registerUserDto.getUserName());
-        user.setEmail(registerUserDto.getEmail());
-        user.setPassword(registerUserDto.getPassword());
+        Users users = new Users();
+        users.setUserName(registerUserDto.getUserName());
+        users.setEmail(registerUserDto.getEmail());
+        users.setPassword(registerUserDto.getPassword());
         UserRole role = userRoleRepository.findByRoleName("USER");
-        user.setRoles(Arrays.asList(role));
-        userRepository.save(user);
+        users.setRoles(Arrays.asList(role));
+        userRepository.save(users);
     }
 
 }

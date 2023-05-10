@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name="users")
-public class User {
+public class Users {
     //Id clé primaire de la base "Users" (auto-générée par séquence):
     @Id
     @SequenceGenerator(name="user_sequence",
@@ -34,18 +34,18 @@ public class User {
     private List<UserRole> roles =  new ArrayList<>();
 
     // constructeurs de la classe Utilisateurs:
-    public User() {
+    public Users() {
         //Constructeur vide requis par hibernate
     }
 
-    public User(String userName, String email, String password, List<UserRole> roles) {
+    public Users(String userName, String email, String password, List<UserRole> roles) {
         this.userName = userName;
         this.email = email;
         this.password = password;
         this.roles = roles;
     }
 
-    public User(Long userId, String userName, String email, String password, List<UserRole> roles) {
+    public Users(Long userId, String userName, String email, String password, List<UserRole> roles) {
         this.userId = userId;
         this.userName = userName;
         this.email = email;

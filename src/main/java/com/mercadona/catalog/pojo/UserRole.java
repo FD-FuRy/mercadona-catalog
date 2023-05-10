@@ -22,19 +22,19 @@ public class UserRole {
     private String roleName;
 
     @ManyToMany(mappedBy = "roles")
-    private List<User> users = new ArrayList<>();
+    private List<Users> users = new ArrayList<>();
 
     // constructeurs de la classe Utilisateurs:
     public UserRole() {
         //Constructeur vide requis par hibernate
     }
 
-    public UserRole(String roleName, List<User> users) {
+    public UserRole(String roleName, List<Users> users) {
         this.roleName = roleName;
         this.users = users;
     }
 
-    public UserRole(Long roleId, String roleName, List<User> users) {
+    public UserRole(Long roleId, String roleName, List<Users> users) {
         this.roleId = roleId;
         this.roleName = roleName;
         this.users = users;
@@ -49,7 +49,7 @@ public class UserRole {
     public void setRoleName(String roleName) { this.roleName = roleName; }
 
     //Getters/Setters du/des utilisateurs ayant ce Role:
-    public List<User> getUsers() { return users; }
-    public void setUsers(List<User> users) { this.users = users; }
+    public List<Users> getUsers() { return users; }
+    public void setUsers(List<Users> users) { this.users = users; }
 
 }

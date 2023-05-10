@@ -1,19 +1,19 @@
 package com.mercadona.catalog.services;
 
 import com.mercadona.catalog.dataTransferObject.RegisterUserDto;
-import com.mercadona.catalog.pojo.User;
+import com.mercadona.catalog.pojo.Users;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getAllUsers();
+    List<Users> getAllUsers();
 
-    User getUserById(Long userId);
+    Users getUserById(Long userId);
 
-    User getUserByName(String userName);
+    Users getUserByName(String userName);
 
-    User getUserByEmail(String email);
+    Users getUserByEmail(String email);
 
     void deleteUser(Long userId);
 
