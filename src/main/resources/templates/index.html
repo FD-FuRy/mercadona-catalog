@@ -10,7 +10,7 @@
     <div class="fragment" data-th-insert="~{components/mainHeader :: headerFragment}"></div>
 
     <h1>CATALOGUE DE PRODUITS MERCADONA :</h1> <br>
-
+    <div data-th-if="${param.success}">test affichage succès</div>
     <div class="labelSelect">Trier les produits par:</div>
     <select name="selected-Category" id="categorySelector">
         <option value="0">TOUS LES PRODUITS</option>
