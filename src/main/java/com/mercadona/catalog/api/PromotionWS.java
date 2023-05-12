@@ -41,7 +41,7 @@ public class PromotionWS {
     @PostMapping ("/post/{productId}")
     public String createPromotion(Promotion promotion, @PathVariable(name = "productId") Product product) {
         promotionService.createPromotion(promotion, product);
-        return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+        return "redirect:/admin/?created_promotion";  //redirection vers le modelandview de la page d'accueil du panneau admin
     }
 
     // Map de la méthode Put des promotions
@@ -68,7 +68,7 @@ public class PromotionWS {
         if (productInside) {
             productService.createProduct(oldProduct);
         }
-        return "redirect:/admin/";
+        return "redirect:/admin/?deleted_promotion";
     }
 
 }

@@ -36,7 +36,7 @@ public class ProductCategoryWS {
     @PostMapping("/post")
     public String createProductsCategory(ProductCategory productCategory) {
         productCategoryService.createProductsCategory(productCategory);
-        return "redirect:/admin/category/createdelete";  //redirection vers le modelandview de la gestion des catégories après la méthode Post du formulaire
+        return "redirect:/admin/category/createdelete?created_category";  //redirection vers le modelandview de la gestion des catégories après la méthode Post du formulaire
     }
 
     // Map de la méthode Put des catégories
@@ -52,7 +52,7 @@ public class ProductCategoryWS {
     @RequestMapping (value = "/delete/{categoryId}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteProductsCategory(@PathVariable(name= "categoryId") Long categoryId) {
         productCategoryService.deleteProductsCategory(categoryId);
-        return "redirect:/admin/category/createdelete";  //redirection vers le modelandview de la gestion des catégories après la méthode delete
+        return "redirect:/admin/category/createdelete?deleted_category";  //redirection vers le modelandview de la gestion des catégories après la méthode delete
     }
 
 }

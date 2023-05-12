@@ -52,7 +52,7 @@ public class ProductWS {
     @PostMapping("/post")
     public String createProduct(Product product) {
         productService.createProduct(product);
-        return "redirect:/admin/";  //redirection vers le modelandview de création de produit après la méthode Post du formulaire
+        return "redirect:/admin/?created_product";  //redirection vers le modelandview de création de produit après la méthode Post du formulaire
     }
 
     // Map de la méthode Put des produits
@@ -60,7 +60,7 @@ public class ProductWS {
     @RequestMapping (value ="/put/{productId}", method = {RequestMethod.PUT, RequestMethod.POST})
     public String updateProduct(@PathVariable(name= "productId") Long productId, Product product) {
         productService.updateProduct(productId, product);
-        return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+        return "redirect:/admin/?updated_product";  //redirection vers le modelandview de la page d'accueil du panneau admin
     }
 
     // Map de la méthode Delete des produits
@@ -69,11 +69,11 @@ public class ProductWS {
     public String deleteProduct(@PathVariable(name= "productId") Long productId) {
         if (productService.getProductById(productId).getPromotion() == null) {
             productService.deleteProduct(productId);
-            return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+            return "redirect:/admin/?deleted_product";  //redirection vers le modelandview de la page d'accueil du panneau admin
         }   else {
             promotionService.deletePromotion(productService.getProductById(productId).getPromotion().getPromotionId());
             productService.deleteProduct(productId);
-            return "redirect:/admin/";  //redirection vers le modelandview de la page d'accueil du panneau admin
+            return "redirect:/admin/?deleted_product";  //redirection vers le modelandview de la page d'accueil du panneau admin
         }
     }
 

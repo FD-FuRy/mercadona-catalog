@@ -27,18 +27,18 @@ public class UserWS {
                              BindingResult result, Model model) {
         Users existingUserEmail = userService.getUserByEmail(registerUserDto.getEmail());
         if (existingUserEmail != null && existingUserEmail.getEmail() != null && !existingUserEmail.getEmail().isEmpty()) {
-            return "redirect:/user/register?fail";
+            return "redirect:/register?already_email_exist";
         }
         Users existingUserName = userService.getUserByName(registerUserDto.getUserName());
         if (existingUserName != null && existingUserName.getUserName() != null && !existingUserName.getUserName().isEmpty()) {
-            return "redirect:/user/register?fail";
+            return "redirect:/register?already_username_exist";
         }
         if (result.hasErrors()) {
             model.addAttribute("user", registerUserDto);
-            return "/user/register";
+            return "/register?fail";
         }
         userService.createUser(registerUserDto);
-        return "redirect:/";
+        return "redirect:/?created_user";
 
     };
 
