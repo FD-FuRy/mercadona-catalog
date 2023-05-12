@@ -15,6 +15,8 @@ spring:
     user:
       name: test
       password: test
+    filter:
+      dispatcher-types: request
 springdoc:
   api-docs:
     path: /api-mercadona_docs
