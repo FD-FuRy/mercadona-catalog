@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercadona catalogue</title>
+    <title>Catalogue Mercadona</title>
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
     <div class="fragment" data-th-insert="~{components/mainHeader :: headerFragment}"></div>
+    <div class="centerDiv" data-th-if="${param.connexion_success}"><div class="success-message"> Connexion au compte Utilisateur réussie !!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.created_user}"><div class="success-message"> Nouvel Utilisateur créé avec succès !!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.disconnected}"><div class="warning-message"> Vous êtes désormais déconnectés !!! </div> </div>
 
     <h1>CATALOGUE DE PRODUITS MERCADONA :</h1> <br>
     <div data-th-if="${param.success}">test affichage succès</div>

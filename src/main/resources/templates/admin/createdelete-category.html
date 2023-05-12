@@ -8,6 +8,10 @@
 </head>
 <body>
     <div data-th-insert="~{admin/components/adminHeader :: adminHeaderFragment}"></div> <br>
+
+    <div class="centerDiv" data-th-if="${param.created_category}"><div class="success-message"> La Catégorie de produits a été créée avec succès !!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.deleted_category}"><div class="warning-message"> La Catégorie de produits a été supprimée !!! </div> </div>
+
     <div class="centerDiv"> <a class="button greyButton" data-th-href="@{/admin/}">Panneau Admin - Accueil</a> </div> <br>
 
     <h2>AJOUTER UNE CATÉGORIE :</h2>

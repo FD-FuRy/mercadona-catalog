@@ -9,6 +9,14 @@
 <body>
     <div data-th-insert="~{/admin/components/adminHeader :: adminHeaderFragment}"></div>
 
+    <div class="centerDiv" data-th-if="${param.continue}"><div class="success-message"> Connexion au COMPTE ADMINISTRATEUR réussie !!!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.created_product}"><div class="success-message"> Le Produit a été créé avec succès !!!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.deleted_product}"><div class="warning-message"> Le Produit a été supprimé !!!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.updated_product}"><div class="success-message"> Le Produit a été modifié avec succès !!!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.created_promotion}"><div class="success-message"> La Promotion a été créée avec succès !!!! </div> </div>
+    <div class="centerDiv" data-th-if="${param.deleted_promotion}"><div class="warning-message"> La Promotion de ce produit a été supprimée !!!! </div> </div>
+
+
     <h2 class="TMargin">CRÉER / SUPPRIMER  DES CATEGORIES D'ARTICLES :</h2>
 
     <div class="centerDiv">
@@ -34,7 +42,7 @@
         <a class="button blueButton" data-th-href="@{/admin/promotion/manage}">Visualiser Promotions</a>
     </div> <br>
 
-    <div class="fragment" data-th-insert="~{components/mainFooter :: footerFragment}"></div>
+    <div class="fragment" data-th-insert="~{/admin/components/adminFooter :: adminFooterFragment}"></div>
 
 <script type="text/javascript" data-th-src="@{/scripts/admin.js}"></script>
 </body>
