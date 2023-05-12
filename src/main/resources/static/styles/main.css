@@ -312,6 +312,16 @@ ul {
     text-align: center;
 }
 
+.centerNav {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
 .biggerText {
     font-size: 1.2rem;
 }
@@ -332,6 +342,31 @@ ul {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.warning-message, .success-message {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.warning-message {
+    background-color: #fca7a7;
+    color: #6c0202;
+}
+
+.success-message {
+    background-color: #b2fdd2;
+    color: #024936;
+}
+
+.bottom-Border {
+    border-bottom-style: solid;
+    border-width: 2px;
+}
+
+
 
 @media (min-width: 900px) {
     .headerLogo {
