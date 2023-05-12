@@ -9,24 +9,31 @@
 <body>
 <div class="fragment" data-th-insert="~{components/mainHeader :: headerFragment}"></div>
 
-<h1>CRÉATION D'UN COMPTE UTILISATEUR :</h1> <br>
+<h1>CONNEXION UTILISATEUR :</h1> <br>
+
+<div class="centerDiv" data-th-if="${param.error}"><div class="warning-message"><div class="strong">ECHEC DE LA CONNEXION !!!</div> <br> <div> Erreur de Nom ou de Mot de Passe  (introuvable ou invalide) !!!</div></div> </div>
+
+<div class="centerDiv"> <a class="button blueButton" data-th-href="@{/}">Retour - Accueil</a> </div> <br>
 
 <div class="confirmCard">
   <form action="#" role="form" data-th-action="@{/login}"
         method="POST">
 
-    <label for="username">Nom de l'utilisateur :</label>
+    <label for="username">Nom de l'utilisateur :</label> <br>
     <input class="categoryForm" type="text" id="username" name="username" placeholder="nom de l'utilisateur"
-           required>
+           required> <br> <br>
 
 
-    <label for="password">Mot de Passe :</label>
+    <label for="password">Mot de Passe :</label> <br>
     <input class="categoryForm" type="password" id="password" name="password" placeholder="Password"
-           required>
+           required> <br> <br>
 
-    <input class="button" type="submit" value="Se connecter">
-  </form>
-</div> <br> <br> <br> <br> <br> <br>
+    <input class="button" type="submit" value="Se connecter"> <br>
+  </form> <br> <br> <br> <br> <br> <br> <br> <br>
+
+  <div class="centerDiv"> Vous n'avez pas encore de compte ?</div>
+  <div class="centerDiv"> <a class="button" data-th-href="@{/register}">Créer un Compte</a> </div>
+</div>  <br> <br>
 
 <div class="fragment" data-th-insert="~{components/mainFooter :: footerFragment}"></div>
 

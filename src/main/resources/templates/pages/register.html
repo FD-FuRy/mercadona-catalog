@@ -11,24 +11,30 @@
 
 <h1>CRÉATION D'UN COMPTE UTILISATEUR :</h1> <br>
 
+<div class="centerDiv" data-th-if="${param.already_email_exist}"><div class="warning-message"> Création Impossible !!! <br> L'email choisi existe déjà !</div> </div>
+<div class="centerDiv" data-th-if="${param.already_username_exist}"><div class="warning-message"> Création Impossible !!! <br> Le nom d'utilisateur choisi existe déjà !</div> </div>
+<div class="centerDiv" data-th-if="${param.fail}"><div class="warning-message"> Erreur dans la création de l'utilisateur : <br> Veuillez recommencer !!!</div> </div>
+
+<div class="centerDiv"> <a class="button blueButton" data-th-href="@{/}">Retour - Accueil</a> </div> <br>
+
 <div class="confirmCard">
     <form action="#" data-th-action="@{/api/user/post}"
           data-th-object="${user}"
           method="POST">
 
-        <label for="userName">Nom de l'utilisateur :</label>
+        <label for="userName">Nom de l'utilisateur :</label> <br>
         <input class="categoryForm" type="text" id="userName" data-th-field="*{userName}" placeholder="nom (entre 5 et 20 caractères)"
-               minlength="5" maxlength="20" required>
+               minlength="5" maxlength="20" required> <br> <br>
 
-        <label for="email">Email de l'utilisateur :</label>
+        <label for="email">Email de l'utilisateur :</label> <br>
         <input class="categoryForm" type="email" id="email" data-th-field="*{email}" placeholder="Email de l'utilisateur"
-               required>
+               required> <br> <br>
 
-        <label for="password">Password :</label>
+        <label for="password">Password :</label> <br>
         <input class="categoryForm" type="text" id="password" data-th-field="*{password}" placeholder="password  (minimum 6 caractères)"
-               minlength="6" required>
+               minlength="6" required> <br> <br> <br> <br>
 
-        <input class="button" type="submit" value="Créer l'utilisateur'">
+        <input class="button" type="submit" value="Créer l'utilisateur">
     </form>
 </div> <br> <br> <br> <br> <br> <br>
 
