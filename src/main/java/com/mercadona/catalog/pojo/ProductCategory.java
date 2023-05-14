@@ -23,12 +23,13 @@ public class ProductCategory {
     @OneToMany(mappedBy = "productCategory", cascade = CascadeType.ALL)
     private List<Product> productList;
 
-    // constructeurs de la classe Categorie des produits:
+    // constructeurs de la classe Categorie des produits :
     public ProductCategory() {
         //constructeur vide requis par Hibernate
     }
     public ProductCategory(String categoryName, List<Product> productList) {
         this.categoryName = categoryName;
+        this.productList = productList;
     }
     public ProductCategory(Long categoryId, String categoryName, List<Product> productList) {
         this.categoryId = categoryId;
@@ -36,7 +37,7 @@ public class ProductCategory {
         this.productList = productList;
     }
 
-    //Getters/Setters du nombre identifiant de la Categorie:
+    //Getters/Setters du nombre identifiant de la Categorie :
     public Long getCategoryId() {
         return categoryId;
     }
@@ -44,7 +45,7 @@ public class ProductCategory {
         this.categoryId = categoryId;
     }
 
-    //Getters/Setters du nom (libellé) de la Categorie:
+    //Getters/Setters du nom (libellé) de la Categorie :
     public String getCategoryName() {
         return categoryName;
     }
@@ -52,7 +53,7 @@ public class ProductCategory {
         this.categoryName = categoryName;
     }
 
-    //Getteres/Setters de la liste de produits de cette catégorie:
+    //Getters/Setters de la liste de produits de cette catégorie :
     public List<Product> getProductList() {
         return productList;
     }
