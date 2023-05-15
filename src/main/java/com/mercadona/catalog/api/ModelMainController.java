@@ -29,7 +29,7 @@ public class ModelMainController {
 
     // MAp du ModelAndView de GetAllProductsData du composant getall-products.html:
     @GetMapping("/get/0")
-    public ModelAndView GetAllProductsData() {
+    public ModelAndView getAllProductsData() {
         ModelAndView getAllProductsList = new ModelAndView();
         getAllProductsList.setViewName("components/getall-product.html");
         getAllProductsList.addObject("allProductsList", productService.getAllProducts());
