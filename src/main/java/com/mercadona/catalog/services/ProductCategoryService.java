@@ -10,8 +10,6 @@ public interface ProductCategoryService {
 
     ProductCategory getProductsCategoryById(Long categoryId);
 
-    void updateProductsCategory(Long categoryId, ProductCategory productCategory);
-
     void createProductsCategory(ProductCategory productCategory);
 
     void deleteProductsCategory(Long categoryId);

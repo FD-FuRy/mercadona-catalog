@@ -11,8 +11,6 @@ public interface PromotionService {
 
     Promotion getPromotionById(Long promotionId);
 
-    void updatePromotion(Long promotionId, Promotion promotion);
-
     void createPromotion(Promotion promotion, Product product);
 
     void deletePromotion(Long promotionId);

@@ -30,12 +30,6 @@ public class PromotionServiceImpl implements PromotionService {
     }
 
     @Override
-    public void updatePromotion(Long promotionId, Promotion promotion) {
-        this.deletePromotion(promotionId);
-        promotionRepository.save(promotion);
-    }
-
-    @Override
     public void createPromotion(Promotion promotion, Product product) {
         promotion.setProduct(product);
         product.setPromotion(promotion);
