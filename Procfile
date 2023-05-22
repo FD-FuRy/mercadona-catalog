@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.mercadona.catalog.CatalogApplication
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/catalog-0.0.1-SNAPSHOT.war
