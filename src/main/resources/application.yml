@@ -12,9 +12,6 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   security:
-    user:
-      name: test
-      password: test
     filter:
       dispatcher-types: request
 Server:
