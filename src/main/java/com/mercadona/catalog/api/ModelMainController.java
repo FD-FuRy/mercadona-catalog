@@ -31,7 +31,7 @@ public class ModelMainController {
     @GetMapping("/get/0")
     public ModelAndView getAllProductsData() {
         ModelAndView getAllProductsList = new ModelAndView();
-        getAllProductsList.setViewName("components/getall-product.html");
+        getAllProductsList.setViewName("/components/getall-product.html");
         getAllProductsList.addObject("allProductsList", productService.getAllProducts());
         return getAllProductsList;
     }
@@ -41,7 +41,7 @@ public class ModelMainController {
     public ModelAndView getAllProductsByCategoryData(@PathVariable(name = "categoryId") Long categoryId) {
         ModelAndView getAllProductsByCategoryList = new ModelAndView();
         ProductCategory selectedCategory = productCategoryService.getProductsCategoryById(categoryId);
-        getAllProductsByCategoryList.setViewName("components/getall-product.html");
+        getAllProductsByCategoryList.setViewName("/components/getall-product.html");
         getAllProductsByCategoryList.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         getAllProductsByCategoryList.addObject("allProductsList", productService.getAllProductsByCategory(selectedCategory));
         return getAllProductsByCategoryList;

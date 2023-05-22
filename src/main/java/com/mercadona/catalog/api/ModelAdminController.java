@@ -29,7 +29,7 @@ public class ModelAdminController {
     @GetMapping
     public ModelAndView getAdminPage() {
         ModelAndView getAdminLandingPage = new ModelAndView();
-        getAdminLandingPage.setViewName("pages/admin.html");
+        getAdminLandingPage.setViewName("/pages/admin.html");
         getAdminLandingPage.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         getAdminLandingPage.addObject("allProductsList", productService.getAllProducts());
         return getAdminLandingPage;
@@ -39,7 +39,7 @@ public class ModelAdminController {
     @GetMapping("/product/get/0")
     public ModelAndView GetAllProductsAdminData() {
         ModelAndView getAllProductsAdminList = new ModelAndView();
-        getAllProductsAdminList.setViewName("admin/components/admin-getall-product.html");
+        getAllProductsAdminList.setViewName("/admin/components/admin-getall-product.html");
         getAllProductsAdminList.addObject("allProductsList", productService.getAllProducts());
         return getAllProductsAdminList;
     }
@@ -49,7 +49,7 @@ public class ModelAdminController {
     public ModelAndView getAllProductsByCategoryAdminData(@PathVariable(name = "categoryId") Long categoryId) {
         ModelAndView getProductsByCategoryAdminList = new ModelAndView();
         ProductCategory selectedCategory = productCategoryService.getProductsCategoryById(categoryId);
-        getProductsByCategoryAdminList.setViewName("admin/components/admin-getall-product.html");
+        getProductsByCategoryAdminList.setViewName("/admin/components/admin-getall-product.html");
         getProductsByCategoryAdminList.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         getProductsByCategoryAdminList.addObject("allProductsList", productService.getAllProductsByCategory(selectedCategory));
         return getProductsByCategoryAdminList;
@@ -59,7 +59,7 @@ public class ModelAdminController {
     @GetMapping ("/product/create")
     public ModelAndView createProduct() {
         ModelAndView getNewProductData = new ModelAndView();
-        getNewProductData.setViewName("admin/create-product.html");
+        getNewProductData.setViewName("/admin/create-product.html");
         Product product = new Product();
         getNewProductData.addObject("createdProduct", product);
         getNewProductData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
@@ -70,7 +70,7 @@ public class ModelAdminController {
     public ModelAndView updateProduct(@PathVariable(name= "productId") Long productId) {
         ModelAndView getProductManagementData = new ModelAndView();
         Product selectedProduct = productService.getProductById(productId);
-        getProductManagementData.setViewName("admin/update-product.html");
+        getProductManagementData.setViewName("/admin/update-product.html");
         getProductManagementData.addObject("toUpdateProduct", selectedProduct);
         getProductManagementData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         return getProductManagementData;
@@ -80,7 +80,7 @@ public class ModelAdminController {
     @GetMapping ("/category/createdelete")
     public ModelAndView manageCategory() {
         ModelAndView getCategoryManagementData = new ModelAndView();
-        getCategoryManagementData.setViewName("admin/createdelete-category.html");
+        getCategoryManagementData.setViewName("/admin/createdelete-category.html");
         ProductCategory productCategory = new ProductCategory();
         getCategoryManagementData.addObject("createdCategory", productCategory);
         getCategoryManagementData.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
@@ -91,7 +91,7 @@ public class ModelAdminController {
     @GetMapping ("/category/delete-confirm/{categoryId}")
     public ModelAndView manageCategory(@PathVariable(name= "categoryId") Long categoryId) {
         ModelAndView getDeleteCategoryConfirmation = new ModelAndView();
-        getDeleteCategoryConfirmation.setViewName("admin/categorydelete-confirm.html");
+        getDeleteCategoryConfirmation.setViewName("/admin/categorydelete-confirm.html");
         getDeleteCategoryConfirmation.addObject("selectedCategory", productCategoryService.getProductsCategoryById(categoryId));
         return getDeleteCategoryConfirmation;
     }
@@ -100,7 +100,7 @@ public class ModelAdminController {
     @GetMapping ("/promotion/create/{productId}")
     public ModelAndView createPromotion(@PathVariable(name= "productId") Long productId) {
         ModelAndView getNewPromotionData = new ModelAndView();
-        getNewPromotionData.setViewName("admin/create-promotion.html");
+        getNewPromotionData.setViewName("/admin/create-promotion.html");
         Promotion promotion = new Promotion();
         promotion.setProduct(productService.getProductById(productId));
         getNewPromotionData.addObject("createdPromotion", promotion);
@@ -112,7 +112,7 @@ public class ModelAdminController {
     @GetMapping ("/promotion/manage")
     public ModelAndView managePromotions() {
         ModelAndView getAllPromotionsList = new ModelAndView();
-        getAllPromotionsList.setViewName("admin/watchdelete-promotion.html");
+        getAllPromotionsList.setViewName("/admin/watchdelete-promotion.html");
         getAllPromotionsList.addObject("allPromotionsList", promotionService.getAllPromotions());
         return getAllPromotionsList;
     }
