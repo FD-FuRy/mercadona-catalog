@@ -43,14 +43,14 @@ public class ModelMainControllerTest {
     @Test
     public void testGetAllProductsData() {
         ModelAndView testModelAndView = modelMainController.getAllProductsData();
-        assertEquals("components/getall-product.html", testModelAndView.getViewName() );
+        assertEquals("/components/getall-product.html", testModelAndView.getViewName() );
     }
 
     //test de la vue chargée en retour à l'appel de la méthode getAllProductsByCategoryData() :
     @Test
     public void testGetAllProductsByCategoryData() {
         ModelAndView testModelAndView = modelMainController.getAllProductsByCategoryData(8L);
-        assertEquals("components/getall-product.html", testModelAndView.getViewName() );
+        assertEquals("/components/getall-product.html", testModelAndView.getViewName() );
     }
 
 }
