@@ -29,7 +29,7 @@ public class ModelAdminController {
     @GetMapping("/")
     public ModelAndView getAdminPage() {
         ModelAndView getAdminLandingPage = new ModelAndView();
-        getAdminLandingPage.setViewName("/admin/admin.html");
+        getAdminLandingPage.setViewName("admin/admin.html");
         getAdminLandingPage.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         getAdminLandingPage.addObject("allProductsList", productService.getAllProducts());
         return getAdminLandingPage;
