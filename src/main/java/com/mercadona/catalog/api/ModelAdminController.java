@@ -26,7 +26,7 @@ public class ModelAdminController {
     private PromotionService promotionService;
 
     // MAP du ModelAndView de la page d'accueil du panneau administrateur:
-    @GetMapping("/")
+    @GetMapping
     public ModelAndView getAdminPage() {
         ModelAndView getAdminLandingPage = new ModelAndView();
         getAdminLandingPage.setViewName("admin/admin.html");
