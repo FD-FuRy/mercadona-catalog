@@ -15,7 +15,7 @@
 	<name>catalog</name>
 	<description>Catalogue de produits des magasins Mercadona</description>
 	<properties>
-		<java.version>9</java.version>
+		<java.version>19</java.version>
 	</properties>
 
 	<dependencies>
@@ -94,15 +94,8 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals><goal>copy-dependencies</goal></goals>
-					</execution>
-				</executions>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>3.0.4</version>
 			</plugin>
 		</plugins>
 	</build>
