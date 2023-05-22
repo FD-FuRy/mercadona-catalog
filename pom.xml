@@ -15,7 +15,7 @@
 	<name>catalog</name>
 	<description>Catalogue de produits des magasins Mercadona</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>9</java.version>
 	</properties>
 
 	<dependencies>
