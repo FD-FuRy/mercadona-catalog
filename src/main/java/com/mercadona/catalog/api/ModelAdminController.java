@@ -26,10 +26,10 @@ public class ModelAdminController {
     private PromotionService promotionService;
 
     // MAP du ModelAndView de la page d'accueil du panneau administrateur:
-    @GetMapping("/test/")
+    @GetMapping
     public ModelAndView getAdminPage() {
         ModelAndView getAdminLandingPage = new ModelAndView();
-        getAdminLandingPage.setViewName("/pages/admin.html");
+        getAdminLandingPage.setViewName("/admin/admin.html");
         getAdminLandingPage.addObject("allCategoriesList", productCategoryService.getAllProductsCategory());
         getAdminLandingPage.addObject("allProductsList", productService.getAllProducts());
         return getAdminLandingPage;
