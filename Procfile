@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.mercadona.catalog
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.mercadona.catalog.CatalogApplication
