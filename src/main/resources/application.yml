@@ -17,6 +17,8 @@ spring:
       password: test
     filter:
       dispatcher-types: request
+Server:
+  port: ${PORT:8080}
 springdoc:
   api-docs:
     path: /api-mercadona_docs
