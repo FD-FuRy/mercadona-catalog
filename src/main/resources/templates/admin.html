@@ -7,7 +7,7 @@
     <link data-th-href="@{/styles/main.css}" rel="stylesheet">
 </head>
 <body>
-    <div data-th-insert="~{/admin/components/adminHeader :: adminHeaderFragment}"></div>
+    <div data-th-insert="~{admin/components/adminHeader :: adminHeaderFragment}"></div>
 
     <div class="centerDiv" data-th-if="${param.continue}"><div class="success-message"> Connexion au COMPTE ADMINISTRATEUR réussie !!!! </div> </div>
     <div class="centerDiv" data-th-if="${param.created_product}"><div class="success-message"> Le Produit a été créé avec succès !!!! </div> </div>
@@ -20,7 +20,7 @@
     <h2 class="TMargin">CRÉER / SUPPRIMER  DES CATEGORIES D'ARTICLES :</h2>
 
     <div class="centerDiv">
-        <a class="button blueButton" data-th-href="@{/admin/category/createdelete}">Gérer  les  Catégories</a> <br>
+        <a class="button blueButton" data-th-href="@{/admin/category/createdelete}">Gérer les Catégories</a> <br>
     </div>
 
     <h2>GÉRER LES PRODUITS ET LEURS PROMOTIONS :</h2>
@@ -42,7 +42,7 @@
         <a class="button blueButton" data-th-href="@{/admin/promotion/manage}">Visualiser Promotions</a>
     </div> <br>
 
-    <div class="fragment" data-th-insert="~{/admin/components/adminFooter :: adminFooterFragment}"></div>
+    <div class="fragment" data-th-insert="~{admin/components/adminFooter :: adminFooterFragment}"></div>
 
 <script type="text/javascript" data-th-src="@{/scripts/admin.js}"></script>
 </body>
