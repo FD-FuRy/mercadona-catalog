@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                         .requestMatchers("/admin/**", "/api/product/**", "/api/category/**", "/api/promotion/**").hasAuthority("ADMIN")
                         .requestMatchers("/swagger-ui/**", "/api-mercadona_docs/**", "/swagger.html", "/v3/api-docs/**").authenticated()
-                        .requestMatchers("/", "/get/**", "/register", "/register**", "/login", "/api/user/**", "/pictures/**", "/scripts/**", "/styles/**", "/error/**").permitAll()
+                        .requestMatchers("/", "/get/**", "/register", "/register**", "/login", "/api/user/**", "/pictures/**", "/scripts/**", "/styles/**", "/error/**", "favicon.ico").permitAll()
                 .and()
                 .formLogin(
                         form -> form
