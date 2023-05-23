@@ -88,7 +88,7 @@ ul {
 .productCard {
     display: inline-block;
     width: 300px;
-    height: 350px;
+    height: 370px;
     background-color: white;
     border-style: solid;
     border-color: #009660;
@@ -100,13 +100,13 @@ ul {
 }
 
 .adminProductCard {
-    height: 560px;
+    height: 585px;
 }
 
 .categoryCard, .promotionCard {
     display: inline-block;
     width: 300px;
-    height: 180px;
+    height: 220px;
     background-color: white;
     border-style: solid;
     border-color: #009660;
@@ -118,7 +118,7 @@ ul {
 }
 
 .promotionCard {
-    height: 280px;
+    height: 300px;
 }
 
 .formCard {
