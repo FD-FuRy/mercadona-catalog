@@ -20,7 +20,7 @@
                 <div class="discountLine">Pourcentage de remise:  <div class="objectData" data-th-text="${promotion.discountPercentage}">pas de remise</div> % </div> <br><br>
 
                 <div class="discountLine" data-th-if="${promotion.product}">
-                    <div>ID du Produit concerné par la promo:  </div> <div class="cardText objectData" data-th-text="${promotion.product.productId}"></div>
+                    <div>ID du Produit concerné:  </div> <div class="cardText objectData" data-th-text="${promotion.product.productId}"></div>
                 </div>
                 <div class="discountLine" data-th-if="${promotion.product}">
                     <div>Produit: </div><div class="cardId objectData" data-th-text="${promotion.product.productName}"></div>
